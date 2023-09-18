@@ -1,8 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-//mongoose for schemas validation
 const mongoose = require("mongoose");
+//mongoose for schemas validation
 const usersRoutes = require("./routes/usersRoutes");
 
 const app = express();
@@ -18,9 +18,11 @@ app.use((req, res, next) => {
 
 app.use("/api/users", usersRoutes);
 
-//connect to db
-mongoose
-  .connect(process.env.MONGO_URI)
+const { MONGO_URI, DB, QUERIES } = process.env;
+
+//DB specifies the database we're using from the cluster (set in run script)
+const db = mongoose
+  .connect(MONGO_URI + DB || "/test" + QUERIES)
   .then(() => {
     app.listen(process.env.PORT, () => {
       console.log("connected to db and listening");
@@ -29,3 +31,5 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+module.exports = { app, db };

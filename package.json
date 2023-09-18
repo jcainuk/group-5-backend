@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon app.js"
+    "dev": "DB=/dev nodemon app.js",
+    "seed": "DB=/dev npm run seed"
   },
   "keywords": [],
   "author": "",
