@@ -21,7 +21,7 @@ app.use("/api/users", usersRoutes);
 const { MONGO_URI, DB, QUERIES } = process.env;
 
 //DB specifies the database we're using from the cluster (set in run script)
-const db = mongoose
+mongoose
   .connect(MONGO_URI + DB || "/test" + QUERIES)
   .then(() => {
     app.listen(process.env.PORT, () => {
@@ -31,5 +31,4 @@ const db = mongoose
   .catch((err) => {
     console.log(err);
   });
-
-module.exports = { app, db };
+module.exports = { app, mongoose };

@@ -1,6 +1,6 @@
 const User = require("../../models/usersModel");
 
-const seed = async ({ userData, placeData }) => {
+module.exports = async ({ userData, placeData }) => {
   await User.deleteMany({});
   await User.insertMany(userData);
 };

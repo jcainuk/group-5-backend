@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "DB=/dev nodemon app.js",
-    "seed": "DB=/dev npm run seed"
+    "seed": "DB=/dev node ./db/seeds/run-seed.js"
   },
   "keywords": [],
   "author": "",
