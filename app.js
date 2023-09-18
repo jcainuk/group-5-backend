@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 //mongoose for schemas validation
 const mongoose = require("mongoose");
+const usersRoutes = require("./routes/usersRoutes");
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
+
+app.use("/api/users", usersRoutes);
 
 //connect to db
 mongoose
