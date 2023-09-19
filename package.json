@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "DB=/dev nodemon app.js",
+    "dev": "DB=/dev nodemon listen.js",
     "seed": "DB=/dev node ./db/seeds/run-seed.js"
   },
   "keywords": [],
