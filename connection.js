@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const { MONGO_URI, DB, QUERIES } = process.env;
 
 //DB specifies the database we're using from the cluster (set in run script)
-const startServer = () => {
+const startDbConnection = () => {
   return mongoose
     .connect(MONGO_URI + DB || "/test" + QUERIES)
     .then(() => {
@@ -11,6 +11,6 @@ const startServer = () => {
     })
     .catch((err) => {
       console.log(err);
-    })
-}
-  module.exports = {mongoose, startServer}
+    });
+};
+module.exports = { mongoose, startDbConnection };
