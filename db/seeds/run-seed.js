@@ -1,8 +1,10 @@
 const seed = require("./seed.js");
 const userData = require("../data/dev-data/users.js");
-const { mongoose } = require("../../app.js");
+const mongoose = require("../../connection");
 
-// mongoose.connection.close();
+
 seed({ userData }).then(() => {
-  console.log("attemtped close");
+  mongoose.connection.close();
+  console.log("attemtped close")
+  
 });
