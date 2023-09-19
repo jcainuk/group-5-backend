@@ -1,16 +1,19 @@
 const { app, db } = require("./app");
 const seed = require("./db/seeds/seed.js");
+const userData = require("./db/data/dev-data/users");
 
 const { mongoose, startDbConnection } = require("./connection");
 
 const request = require("supertest");
 
 beforeEach(() => {
-  startDbConnection();
+  return startDbConnection().then(() => {
+    return seed({ userData });
+  });
 });
 
 afterAll(() => {
-  mongoose.connection.close();
+  return mongoose.connection.close();
 });
 
 describe("/GET users", () => {
