@@ -1,2 +1,25 @@
 const { app, db } = require("./app");
 const seed = require("./db/seeds/seed.js");
+
+const { mongoose, startDbConnection } = require("./connection");
+
+const request = require("supertest");
+
+beforeEach(() => {
+  startDbConnection();
+});
+
+afterAll(() => {
+  mongoose.connection.close();
+});
+
+describe("/GET users", () => {
+  test("it should return all users", () => {
+    return request(app)
+      .get("/api/users")
+      .expect(200)
+      .then(({ body }) => {
+        console.log(body);
+      });
+  });
+});
