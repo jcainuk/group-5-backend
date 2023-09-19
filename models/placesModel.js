@@ -4,23 +4,29 @@ const Schema = mongoose.Schema;
 
 const placeSchema = new mongoose.Schema(
   {
-    name: {
-      type: String
+    placeName: {
+      type: String,
     },
     coordinates: {
       type: [Number],
-      required: true
+      required: true,
+      validate: {
+        validator: function (array) {
+          return array.length === 2;
+        },
+      },
     },
-    author: {
+    creator: {
       type: String,
-      required: true
+      required: true,
     },
-    rating: {
-      type: Number
-    }
+    imgURL: {
+      type: String,
+      required: true,
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 module.exports = mongoose.model("Place", placeSchema);
