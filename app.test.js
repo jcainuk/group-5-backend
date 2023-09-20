@@ -54,14 +54,15 @@ describe("/api/users", () => {
 });
 
 // Places
-describe("/GET places", () => {
-  test("it should return all places", () => {
-    return request(app)
-      .get("/api/places")
-      .expect(200)
-      .then(({ body }) => {
-        console.log(body);
-      });
+describe("/api/places", () => {
+  describe("GET /", () => {
+    test("200: responds with an array of all place", async () => {
+      const response = await request(app).get("/api/places");
+
+      expect(response.statusCode).toBe(200);
+      expect(Array.isArray(response.body)).toBe(true);
+      expect(response.body.length).toBeGreaterThan(0);
+    });
   });
 });
 
