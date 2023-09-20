@@ -24,9 +24,15 @@ const placeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    guesses: {
+      type: [String],
+      required:true,
+    }
   },
   {
     timestamps: true,
   }
 );
+
+//if changing schema, need to update places controllers req.body destructuring
 module.exports = mongoose.model("Place", placeSchema);
