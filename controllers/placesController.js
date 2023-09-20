@@ -28,6 +28,7 @@ exports.getPlaceById = async (req, res) => {
   }
 };
 
+
 //will need UPDATING if schema changes
 exports.createPlace = async (req, res) => {
   try {
@@ -59,4 +60,19 @@ exports.createPlace = async (req, res) => {
     // console.log(err._message);
     res.status(500).json({ err: "could not create place" });
   }
+
+exports.deletePlaceById = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such place" });
+  }
+
+  const place = await Place.deleteOne({ _id: id });
+
+  if (!place) {
+    return res.status(404).json({ error: "No such place" });
+  }
+
+  res.status(200).json({ place });
+
 };

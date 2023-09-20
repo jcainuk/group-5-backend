@@ -26,8 +26,9 @@ const placeSchema = new mongoose.Schema(
     },
     guesses: {
       type: [String],
-      required:true,
-    }
+      required: true,
+    },
+
   },
   {
     timestamps: true,
