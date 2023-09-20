@@ -20,12 +20,25 @@ exports.getPlaceById = async (req, res) => {
 
     const place = await Place.findById(id);
     if (!place) {
-
       return res.status(404).json({ error: "No place found" });
     }
     res.status(200).json(place);
-
   } catch (err) {
     console.log(err);
   }
+};
+
+exports.deletePlaceById = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such place" });
+  }
+
+  const place = await Place.deleteOne({ _id: id });
+
+  if (!place) {
+    return res.status(404).json({ error: "No such place" });
+  }
+
+  res.status(200).json({ place });
 };

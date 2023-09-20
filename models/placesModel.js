@@ -24,6 +24,10 @@ const placeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    guesses: {
+      type: [String],
+      required: true,
+    },
   },
   {
     timestamps: true,
