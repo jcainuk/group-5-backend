@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 //mongoose for schemas validation
 const usersRoutes = require("./routes/usersRoutes");
+const placesRoutes = require("./routes/placesRoutes");
 
 const app = express();
 
