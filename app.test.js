@@ -1,6 +1,7 @@
 const { app, db } = require("./app");
 const seed = require("./db/seeds/seed.js");
 const userData = require("./db/data/test-data/users");
+const placesData = require("./db/data/test-data/places");
 
 const { mongoose, startDbConnection } = require("./connection");
 
