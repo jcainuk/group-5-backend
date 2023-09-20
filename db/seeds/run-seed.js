@@ -5,16 +5,9 @@ const { mongoose, startDbConnection } = require("../../connection");
 
 startDbConnection()
   .then(() => {
-    console.log({ userData, placesData });
-    return seed({ userData, placesData});
+    return seed({ userData, placesData });
   })
   .then(() => {
     mongoose.connection.close();
     console.log("attemtped close");
   });
-
-// seed({ userData }).then(() => {
-//   mongoose.connection.close();
-//   console.log("attemtped close")
-
-// });
