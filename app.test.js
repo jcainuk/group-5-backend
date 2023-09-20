@@ -26,6 +26,29 @@ describe("/GET users", () => {
   });
 });
 
+describe("/GET places", () => {
+  test("it should return all places", () => {
+    return request(app)
+      .get("/api/places")
+      .expect(200)
+      .then(({ body }) => {
+        console.log(body);
+      });
+  });
+});
+
+describe("/DELETE PlaceById", () => {
+  test("it should delete a place by its ID", () => {
+    return request(app)
+      .delete("/api/places/650afa0f0d52aa2187210c6a")
+      .expect(200)
+      .then(({ body }) => {
+        expect(body.place.acknowledged).toBe(true);
+        console.log(body);
+
+      });
+  });
+});
 
 describe("/POST place", () => {
   test("201: posts place to database", () => {
@@ -50,27 +73,6 @@ describe("/POST place", () => {
           guesses: expect.any(Array),
         }))
         expect(Object.keys(body).length).toBe(9)
-
-describe("/GET places", () => {
-  test("it should return all places", () => {
-    return request(app)
-      .get("/api/places")
-      .expect(200)
-      .then(({ body }) => {
-        console.log(body);
-      });
-  });
-});
-
-describe("/DELETE PlaceById", () => {
-  test("it should delete a place by its ID", () => {
-    return request(app)
-      .delete("/api/places/650afa0f0d52aa2187210c6a")
-      .expect(200)
-      .then(({ body }) => {
-        expect(body.place.acknowledged).toBe(true);
-        console.log(body);
-
-      });
-  });
-});
+      })
+    })
+  })

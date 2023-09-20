@@ -2,8 +2,6 @@ const express = require("express");
 const placeRouter = express.Router();
 
 const { getPlaces, getPlaceById, createPlace} = require("../controllers/placesController");
-
-const { getPlaces, getPlaceById } = require("../controllers/placesController");
 const {deletePlaceById} = require("../controllers/placesController")
 
 

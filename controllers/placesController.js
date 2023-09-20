@@ -60,6 +60,7 @@ exports.createPlace = async (req, res) => {
     // console.log(err._message);
     res.status(500).json({ err: "could not create place" });
   }
+}
 
 exports.deletePlaceById = async (req, res) => {
   const { id } = req.params;
@@ -74,5 +75,4 @@ exports.deletePlaceById = async (req, res) => {
   }
 
   res.status(200).json({ place });
-
-};
+}
