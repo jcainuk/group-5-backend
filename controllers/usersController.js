@@ -1,6 +1,7 @@
 const User = require("../models/usersModel");
 const mongoose = require("mongoose");
 
+// get all users
 exports.getUsers = async (req, res) => {
   try {
     const users = await User.find({}).sort({ createdAt: -1 });
@@ -12,21 +13,16 @@ exports.getUsers = async (req, res) => {
 };
 
 // create new user
-// create new workout
 exports.createUser = async (req, res) => {
-  const { username } = req.body;
-
-  if (!username) {
-    return res.status(400).json({ error: "Please fill in username field!" });
-  }
-
-  // add doc to db
   try {
-    const user = await User.create({
-      username
-    });
-    res.status(201).json({ msg: "user created successfully" });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    const userData = req.body;
+    const user = new User(userData);
+    const savedUser = await user.save();
+
+    res.status(201).json({ msg: "User created successfully", user: savedUser });
+  } catch (err) {
+    console.error("Error creating user:", err);
+    const statusCode = err.name === "ValidationError" ? 422 : 500;
+    res.status(statusCode).json({ error: err.message });
   }
 };

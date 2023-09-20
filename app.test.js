@@ -5,14 +5,13 @@ const placesData = require("./db/data/test-data/places");
 
 const { mongoose, startDbConnection } = require("./connection");
 const request = require("supertest");
-beforeEach(() => {
-  return startDbConnection().then(() => {
-    return seed({ userData, placesData });
-  });
+beforeAll(async () => {
+  await startDbConnection();
+  await seed({ userData, placesData });
 });
 
-afterAll(() => {
-  return mongoose.connection.close();
+afterAll(async () => {
+  await mongoose.connection.close();
 });
 
 // Users
@@ -38,16 +37,18 @@ describe("/api/users", () => {
       const response = await request(app).post("/api/users").send(newUser);
 
       expect(response.statusCode).toBe(201);
-      expect(response.body.user.username).toBe(newUser.username);
-      expect(response.body.user.avatar_URL).toBe(newUser.avatar_URL);
+      expect(response.body.user.username).toEqual(newUser.username);
+      expect(response.body.user.avatar_URL).toEqual(newUser.avatar_URL);
       expect(response.body.user.achievements).toEqual(newUser.achievements);
     });
 
     test("400: returns an error if username is missing", async () => {
       const response = await request(app).post("/api/users").send({});
 
-      expect(response.statusCode).toBe(400);
-      expect(response.body.error).toBe("Username is required");
+      expect(response.statusCode).toBe(422);
+      expect(response.body.error).toBe(
+        "User validation failed: username: Path `username` is required."
+      );
     });
   });
 });
