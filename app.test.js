@@ -15,33 +15,35 @@ afterAll(() => {
   return mongoose.connection.close();
 });
 
-describe("/GET users", () => {
-  test("it should return all users", () => {
-    return request(app)
-      .get("/api/users")
-      .expect(200)
-      .then(({ body }) => {
-        console.log(body);
-      });
+// Users
+describe("/api/users", () => {
+  describe("GET users default", () => {
+    test("200: it responds with an array of all users", () => {
+      return request(app)
+        .get("/api/users")
+        .expect(200)
+        .then(({ body }) => {
+          console.log(body);
+        });
+    });
+  });
+  describe("POST a new user", () => {
+    test("POST 201: add a new user to the database", () => {
+      return request(app)
+        .post("/api/users/")
+        .send({
+          username: "Billy"
+        })
+        .expect(201)
+        .then((response) => {
+          const { msg } = response.body;
+          expect(msg).toEqual("user created successfully");
+        });
+    });
   });
 });
 
-describe("add a new user", () => {
-  test("POST 201: add a new user to the database", () => {
-    return request(app)
-      .post("/api/users/")
-      .send({
-        username: "Billy"
-      })
-      .expect(201)
-      .then((response) => {
-        const { msg } = response.body;
-
-        expect(msg).toEqual("user created successfully");
-      });
-  });
-});
-
+// Places
 describe("/GET places", () => {
   test("it should return all places", () => {
     return request(app)
