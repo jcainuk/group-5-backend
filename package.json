@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --verbose",
     "dev": "DB=/dev nodemon listen.js",
-    "seed": "DB=/dev node ./db/seeds/run-seed.js"
+    "seed": "DB=/dev node ./db/seeds/run-seed.js",
+    "build": "node listen.js"
   },
   "engines": {
     "node": ">=14.20.1"
