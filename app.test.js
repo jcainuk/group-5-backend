@@ -26,6 +26,17 @@ describe("/GET users", () => {
   });
 });
 
+describe("/GET places", () => {
+  test("it should return all places", () => {
+    return request(app)
+      .get("/api/places")
+      .expect(200)
+      .then(({ body }) => {
+        console.log(body);
+      });
+  });
+});
+
 describe("/DELETE PlaceById", () => {
   test("it should delete a place by its ID", () => {
     return request(app)
