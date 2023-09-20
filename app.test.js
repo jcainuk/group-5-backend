@@ -17,28 +17,37 @@ afterAll(() => {
 
 // Users
 describe("/api/users", () => {
-  describe("GET users default", () => {
-    test("200: it responds with an array of all users", () => {
-      return request(app)
-        .get("/api/users")
-        .expect(200)
-        .then(({ body }) => {
-          console.log(body);
-        });
+  describe("GET /", () => {
+    test("200: responds with an array of all users", async () => {
+      const response = await request(app).get("/api/users");
+
+      expect(response.statusCode).toBe(200);
+      expect(Array.isArray(response.body)).toBe(true);
+      expect(response.body.length).toBeGreaterThan(0);
     });
   });
-  describe("POST a new user", () => {
-    test("POST 201: add a new user to the database", () => {
-      return request(app)
-        .post("/api/users/")
-        .send({
-          username: "Billy"
-        })
-        .expect(201)
-        .then((response) => {
-          const { msg } = response.body;
-          expect(msg).toEqual("user created successfully");
-        });
+
+  describe("POST /", () => {
+    test("201: adds a new user to the database", async () => {
+      const newUser = {
+        username: "Billy",
+        avatar_URL: "https://example.com/avatar.jpg",
+        achievements: { gold: 0, silver: 0, bronze: 0 }
+      };
+
+      const response = await request(app).post("/api/users").send(newUser);
+
+      expect(response.statusCode).toBe(201);
+      expect(response.body.user.username).toBe(newUser.username);
+      expect(response.body.user.avatar_URL).toBe(newUser.avatar_URL);
+      expect(response.body.user.achievements).toEqual(newUser.achievements);
+    });
+
+    test("400: returns an error if username is missing", async () => {
+      const response = await request(app).post("/api/users").send({});
+
+      expect(response.statusCode).toBe(400);
+      expect(response.body.error).toBe("Username is required");
     });
   });
 });
