@@ -1,20 +1,22 @@
 const { app, db } = require("./app");
 const seed = require("./db/seeds/seed.js");
 const userData = require("./db/data/test-data/users");
+const User = require("./models/usersModel");
 const placesData = require("./db/data/test-data/places");
 
 const { mongoose, startDbConnection } = require("./connection");
 const request = require("supertest");
-beforeAll(async () => {
-  await startDbConnection();
-  await seed({ userData, placesData });
+beforeEach(() => {
+  return startDbConnection().then(() => {
+    return seed({ userData, placesData });
+  });
 });
 
-afterAll(async () => {
-  await mongoose.connection.close();
+afterAll(() => {
+  return mongoose.connection.close();
 });
 
-// Users
+// Users: /api/users/
 describe("/api/users", () => {
   describe("GET /", () => {
     test("200: responds with an array of all users", async () => {
@@ -46,9 +48,7 @@ describe("/api/users", () => {
       const response = await request(app).post("/api/users").send({});
 
       expect(response.statusCode).toBe(422);
-      expect(response.body.error).toBe(
-        "User validation failed: username: Path `username` is required."
-      );
+      expect(response.body.msg).toBe("username required");
     });
   });
 });

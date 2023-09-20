@@ -12,6 +12,24 @@ exports.getUsers = async (req, res) => {
   }
 };
 
+// get user by id
+exports.getUserById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({ error: "invalid id" });
+    }
+
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ error: "No user found" });
+    }
+    res.status(200).json(user);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 // create new user
 exports.createUser = async (req, res) => {
   try {
@@ -23,6 +41,6 @@ exports.createUser = async (req, res) => {
   } catch (err) {
     console.error("Error creating user:", err);
     const statusCode = err.name === "ValidationError" ? 422 : 500;
-    res.status(statusCode).json({ error: err.message });
+    res.status(statusCode).json({ msg: "username required" });
   }
 };
