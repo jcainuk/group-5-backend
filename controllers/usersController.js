@@ -12,13 +12,12 @@ exports.getUsers = async (req, res) => {
 };
 
 // create new user
+// create new workout
 exports.createUser = async (req, res) => {
   const { username } = req.body;
 
   if (!username) {
-    return res
-      .status(400)
-      .json({ error: "Please fill in the username field!" });
+    return res.status(400).json({ error: "Please fill in username field!" });
   }
 
   // add doc to db
@@ -26,7 +25,7 @@ exports.createUser = async (req, res) => {
     const user = await User.create({
       username
     });
-    res.status(201).json(user);
+    res.status(201).json({ msg: "user created successfully" });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

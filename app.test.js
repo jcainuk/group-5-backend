@@ -9,7 +9,7 @@ const request = require("supertest");
 
 beforeEach(() => {
   return startDbConnection().then(() => {
-    return seed({ userData });
+    return seed({ userData, placesData });
   });
 });
 
@@ -24,6 +24,22 @@ describe("/GET users", () => {
       .expect(200)
       .then(({ body }) => {
         console.log(body);
+      });
+  });
+});
+
+describe("add a new user", () => {
+  test("POST 201: add a new user to the database", () => {
+    return request(app)
+      .post("/api/users/")
+      .send({
+        username: "Billy"
+      })
+      .expect(201)
+      .then((response) => {
+        const { msg } = response.body;
+
+        expect(msg).toEqual("user created successfully");
       });
   });
 });
