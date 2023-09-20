@@ -7,6 +7,7 @@ const { MONGO_URI, DB, QUERIES } = process.env;
 const database = DB || "/test";
 
 const startDbConnection = () => {
+  console.log(MONGO_URI + database + QUERIES);
   return mongoose
     .connect(MONGO_URI + database + QUERIES)
     .then(() => {
