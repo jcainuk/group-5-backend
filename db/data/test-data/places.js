@@ -37,6 +37,7 @@ module.exports = [
       },
     ],
     votes: 0,
+
   },
   {
     placeName: "testPlace3",
@@ -53,6 +54,7 @@ module.exports = [
       },
     ],
     votes: 0,
+
   },
   {
     placeName: "testPlace4",
@@ -70,4 +72,5 @@ module.exports = [
     ],
     votes: 0,
   },
+
 ];

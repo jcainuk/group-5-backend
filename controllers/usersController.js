@@ -1,6 +1,7 @@
 const User = require("../models/usersModel");
 const mongoose = require("mongoose");
 
+// get all users
 exports.getUsers = async (req, res) => {
   try {
     const users = await User.find({}).sort({ createdAt: -1 });
@@ -11,23 +12,35 @@ exports.getUsers = async (req, res) => {
   }
 };
 
+// get user by id
+exports.getUserById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({ error: "invalid id" });
+    }
+
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ error: "No user found" });
+    }
+    res.status(200).json(user);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 // create new user
 exports.createUser = async (req, res) => {
-  const { username } = req.body;
-
-  if (!username) {
-    return res
-      .status(400)
-      .json({ error: "Please fill in the username field!" });
-  }
-
-  // add doc to db
   try {
-    const user = await User.create({
-      username
-    });
-    res.status(201).json(user);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    const userData = req.body;
+    const user = new User(userData);
+    const savedUser = await user.save();
+
+    res.status(201).json({ msg: "User created successfully", user: savedUser });
+  } catch (err) {
+    console.error("Error creating user:", err);
+    const statusCode = err.name === "ValidationError" ? 422 : 500;
+    res.status(statusCode).json({ msg: "username required" });
   }
 };
