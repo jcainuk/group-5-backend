@@ -33,7 +33,6 @@
           "controller": "updateUserById",
           "description": "Update a user's information",
           "body": {
-            "username": "String (optional) - Updated username",
             "avatar_URL": "String (optional) - Updated URL of the user's avatar",
             "achievements": {
               "gold": "Number (optional) - Number of gold achievements to add",
