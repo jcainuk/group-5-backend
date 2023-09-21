@@ -53,6 +53,44 @@ describe("/api/users", () => {
   });
 });
 
+// Users: /api/users/:id
+describe("/api/users/:id", () => {
+  describe("GET /:id", () => {
+    test("200: responds with the correct user object", async () => {
+      // set up
+      const [
+        user1,
+        user2,
+        user3,
+        user4,
+        user5
+      ] = require("./db/data/test-data/users");
+
+      const user1Id = new mongoose.Types.ObjectId();
+      const user2Id = new mongoose.Types.ObjectId();
+      const user3Id = new mongoose.Types.ObjectId();
+      const user4Id = new mongoose.Types.ObjectId();
+      const user5Id = new mongoose.Types.ObjectId();
+
+      user1._id = user1Id;
+      user2._id = user2Id;
+      user3._id = user3Id;
+      user4._id = user4Id;
+      user5._id = user5Id;
+
+      await User.insertMany([user1, user2, user3, user4, user5]);
+
+      const response = await request(app).get(`/api/users/${user1Id}`);
+
+      expect(response.status).toBe(200);
+      expect(response.body._id).toEqual(user1Id.toString());
+      expect(response.body.username).toEqual(user1.username);
+      expect(response.body.avatar_URL).toEqual(user1.avatar_URL);
+      expect(response.body.achievements).toEqual(user1.achievements);
+    });
+  });
+});
+
 // Places
 describe("/api/places", () => {
   describe("GET /", () => {
@@ -108,8 +146,7 @@ describe("/POST place", () => {
       placeName: "A test place",
       coordinates: [55.8374, -3.9876],
       creator: "TestUser",
-      imgURL: "test",
-
+      imgURL: "test"
     };
     return request(app)
       .post("/api/places")
