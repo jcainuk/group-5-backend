@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const placeSchema = new mongoose.Schema(
   {
     placeName: {
-      type: String,
+      type: String
     },
     coordinates: {
       type: [Number],
@@ -14,16 +14,16 @@ const placeSchema = new mongoose.Schema(
       validate: {
         validator: function (array) {
           return array.length === 2;
-        },
-      },
+        }
+      }
     },
     creator: {
       type: String,
-      required: true,
+      required: true
     },
     imgURL: {
       type: String,
-      required: true,
+      required: true
     },
     guesses: [
       {
@@ -32,16 +32,24 @@ const placeSchema = new mongoose.Schema(
         avatarURL: String,
         distance: Number,
         medal: String,
-      },
+        guessCoordinates: {
+          type: [Number],
+          validate: {
+            validator: function (array) {
+              return array.length === 2;
+            }
+          },
+          default: null
+        }
+      }
     ],
     votes: {
-      type: Number,
-    },
+      type: Number
+    }
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 );
 
-//if changing schema, need to update places controllers req.body destructuring
 module.exports = mongoose.model("Place", placeSchema);
