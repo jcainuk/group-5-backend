@@ -39,7 +39,7 @@ exports.createUser = async (req, res) => {
 
     res.status(201).json({ msg: "User created successfully", user: savedUser });
   } catch (err) {
-    console.error("Error creating user:", err);
+    console.log("Error creating user");
     const statusCode = err.name === "ValidationError" ? 422 : 500;
     res.status(statusCode).json({ msg: "username required" });
   }
