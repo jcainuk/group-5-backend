@@ -3,6 +3,7 @@ const cors = require("cors");
 //mongoose for schemas validation
 const usersRoutes = require("./routes/usersRoutes");
 const placesRoutes = require("./routes/placesRoutes");
+const endpointsRoutes = require("./routes/endpointsRoutes");
 
 const app = express();
 
@@ -18,5 +19,7 @@ app.use((req, res, next) => {
 app.use("/api/users", usersRoutes);
 
 app.use("/api/places", placesRoutes);
+
+app.use("/api", endpointsRoutes);
 
 module.exports = { app };
