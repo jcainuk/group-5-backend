@@ -70,7 +70,10 @@
           "description": "Create a new place",
           "body": {
             "placeName": "String - Name of the place",
-            "coordinates": "[Number, Number] - Latitude and Longitude coordinates",
+            "coordinates": [
+              "Number - Latitude of the place",
+              "Number - Longitude of the place"
+            ],
             "creator": "String - Creator of the place",
             "imgURL": "String - URL of the place's image",
             "guesses": [
@@ -79,7 +82,11 @@
                 "username": "String - User's username",
                 "avatarURL": "String - URL of the user's avatar",
                 "distance": "Number - Distance",
-                "medal": "String - Medal type"
+                "medal": "String - Medal type",
+                "guessCoordinates": [
+                  "Number - Latitude of the guess",
+                  "Number - Longitude of the guess"
+                ]
               }
             ],
             "votes": "Number (optional) - Number of votes"
@@ -97,6 +104,23 @@
         "DELETE": {
           "controller": "deletePlaceById",
           "description": "Delete a place by ID"
+        }
+      }
+    },
+    {
+      "route": "/api/places/:id/guesses",
+      "methods": {
+        "POST": {
+          "controller": "addGuessToPlace",
+          "description": "Add a new guess to the place (where :id is the place ID)",
+          "body": {
+            "username": "String - User's username",
+            "avatarURL": "String - URL of the user's avatar",
+            "guessCoordinates": [
+              "Number - Latitude of the guess",
+              "Number - Longitude of the guess"
+            ]
+          }
         }
       }
     }
