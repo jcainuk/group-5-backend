@@ -44,3 +44,25 @@ exports.createUser = async (req, res) => {
     res.status(statusCode).json({ msg: "username required" });
   }
 };
+
+// delete user by id
+exports.deleteUserById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({ msg: "Invalid ID" });
+    }
+
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    await User.findByIdAndDelete(id);
+
+    res.status(204).send();
+  } catch (err) {
+    console.error("Error deleting user:", err);
+    res.status(500).json({ msg: "Internal server error" });
+  }
+};

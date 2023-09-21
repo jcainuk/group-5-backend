@@ -3,13 +3,14 @@ const userRouter = express.Router();
 const {
   getUsers,
   createUser,
-  getUserById
+  getUserById,
+  deleteUserById
 } = require("../controllers/usersController");
 
 userRouter.get("/", getUsers);
+userRouter.post("/", createUser);
 
 userRouter.get("/:id", getUserById);
-
-userRouter.post("/", createUser);
+userRouter.delete("/:id", deleteUserById);
 
 module.exports = userRouter;
