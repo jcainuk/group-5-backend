@@ -6,14 +6,14 @@ module.exports = [
     imgURL: "https://example.com/manchester-central-library.jpg",
     guesses: [
       {
-        user_id: 1,
+        user_id: "1",
         username: "Test4",
         avatarURL: "TestAvatar",
         distance: 0,
         medal: "gold",
       },
       {
-        user_id: 2,
+        user_id: "2",
         username: "Test2",
         avatarURL: "TestAvatar",
         distance: 10,
@@ -29,7 +29,7 @@ module.exports = [
     imgURL: "https://example.com/manchester-town-centre.jpg",
     guesses: [
       {
-        user_id: 3,
+        user_id: "3",
         username: "Test3",
         avatarURL: "TestAvatar",
         distance: 20,
@@ -45,7 +45,7 @@ module.exports = [
     imgURL: "https://example.com/manchester-arndale.jpg",
     guesses: [
       {
-        user_id: 2,
+        user_id: "2",
         username: "Test2",
         avatarURL: "TestAvatar",
         distance: 10,
@@ -61,7 +61,7 @@ module.exports = [
     imgURL: "https://example.com/manchester-town-hall.jpg",
     guesses: [
       {
-        user_id: 1,
+        user_id: "1",
         username: "Test1",
         avatarURL: "TestAvatar",
         distance: 0,
