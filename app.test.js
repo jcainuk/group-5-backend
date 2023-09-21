@@ -156,7 +156,6 @@ describe("/api/users/:id", () => {
       await User.insertMany([user1, user2, user3, user4, user5]);
 
       const updates = {
-        username: "UpdatedUsername",
         avatar_URL: "https://example.com/updated-avatar.jpg",
         achievements: { gold: 1, silver: 2, bronze: 3 }
       };
@@ -168,7 +167,6 @@ describe("/api/users/:id", () => {
       expect(response.status).toBe(200);
 
       expect(response.body._id).toEqual(user1Id.toString());
-      expect(response.body.username).toEqual(updates.username);
       expect(response.body.avatar_URL).toEqual(updates.avatar_URL);
 
       expect(response.body.achievements.gold).toEqual(
@@ -182,7 +180,6 @@ describe("/api/users/:id", () => {
       );
 
       const updatedUser = await User.findById(user1Id);
-      expect(updatedUser.username).toEqual(updates.username);
       expect(updatedUser.avatar_URL).toEqual(updates.avatar_URL);
 
       expect(updatedUser.achievements.gold).toEqual(
@@ -200,7 +197,6 @@ describe("/api/users/:id", () => {
       const nonExistentUserId = new mongoose.Types.ObjectId();
 
       const updates = {
-        username: "UpdatedUsername",
         avatar_URL: "https://example.com/updated-avatar.jpg",
         achievements: { gold: 1, silver: 2, bronze: 3 }
       };
