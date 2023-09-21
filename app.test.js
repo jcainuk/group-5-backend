@@ -211,6 +211,40 @@ describe("/api/users/:id", () => {
   });
 });
 
+// Username: /username/:username
+describe("GET /api/username/:username", () => {
+  test("200: responds with the correct user object when searching with username", async () => {
+    const [
+      user1,
+      user2,
+      user3,
+      user4,
+      user5
+    ] = require("./db/data/test-data/users");
+
+    // Insert the test users into the database
+    await User.insertMany([user1, user2, user3, user4, user5]);
+
+    const response = await request(app).get(`/api/username/${user1.username}`);
+
+    expect(response.status).toBe(200);
+    expect(response.body.username).toEqual(user1.username);
+    expect(response.body.avatar_URL).toEqual(user1.avatar_URL);
+    expect(response.body.achievements).toEqual(user1.achievements);
+  });
+
+  test("404: responds with an error for a non-existent username", async () => {
+    const nonExistentUsername = "nonexistentuser";
+
+    const response = await request(app).get(
+      `/api/username/${nonExistentUsername}`
+    );
+
+    expect(response.status).toBe(404);
+    expect(response.body.error).toEqual("No user found");
+  });
+});
+
 // Places
 describe("/api/places", () => {
   describe("GET /", () => {
