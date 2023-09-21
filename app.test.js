@@ -165,7 +165,7 @@ describe("/POST place", () => {
       coordinates: [55.8374, -3.9876],
       creator: "TestUser",
       imgURL: "test",
-      guesses: ["testGuess"]
+
     };
     return request(app)
       .post("/api/places")
