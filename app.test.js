@@ -131,6 +131,88 @@ describe("/api/users/:id", () => {
       expect(response.body.msg).toBe("User not found");
     });
   });
+  describe("PATCH /:id", () => {
+    test("200: updates the user's properties and returns the updated user", async () => {
+      const [
+        user1,
+        user2,
+        user3,
+        user4,
+        user5
+      ] = require("./db/data/test-data/users");
+
+      const user1Id = new mongoose.Types.ObjectId();
+      const user2Id = new mongoose.Types.ObjectId();
+      const user3Id = new mongoose.Types.ObjectId();
+      const user4Id = new mongoose.Types.ObjectId();
+      const user5Id = new mongoose.Types.ObjectId();
+
+      user1._id = user1Id;
+      user2._id = user2Id;
+      user3._id = user3Id;
+      user4._id = user4Id;
+      user5._id = user5Id;
+
+      await User.insertMany([user1, user2, user3, user4, user5]);
+
+      const updates = {
+        username: "UpdatedUsername",
+        avatar_URL: "https://example.com/updated-avatar.jpg",
+        achievements: { gold: 1, silver: 2, bronze: 3 }
+      };
+
+      const response = await request(app)
+        .patch(`/api/users/${user1Id}`)
+        .send(updates);
+
+      expect(response.status).toBe(200);
+
+      expect(response.body._id).toEqual(user1Id.toString());
+      expect(response.body.username).toEqual(updates.username);
+      expect(response.body.avatar_URL).toEqual(updates.avatar_URL);
+
+      expect(response.body.achievements.gold).toEqual(
+        user1.achievements.gold + updates.achievements.gold
+      );
+      expect(response.body.achievements.silver).toEqual(
+        user1.achievements.silver + updates.achievements.silver
+      );
+      expect(response.body.achievements.bronze).toEqual(
+        user1.achievements.bronze + updates.achievements.bronze
+      );
+
+      const updatedUser = await User.findById(user1Id);
+      expect(updatedUser.username).toEqual(updates.username);
+      expect(updatedUser.avatar_URL).toEqual(updates.avatar_URL);
+
+      expect(updatedUser.achievements.gold).toEqual(
+        user1.achievements.gold + updates.achievements.gold
+      );
+      expect(updatedUser.achievements.silver).toEqual(
+        user1.achievements.silver + updates.achievements.silver
+      );
+      expect(updatedUser.achievements.bronze).toEqual(
+        user1.achievements.bronze + updates.achievements.bronze
+      );
+    });
+
+    test("404: returns not found if the user does not exist", async () => {
+      const nonExistentUserId = new mongoose.Types.ObjectId();
+
+      const updates = {
+        username: "UpdatedUsername",
+        avatar_URL: "https://example.com/updated-avatar.jpg",
+        achievements: { gold: 1, silver: 2, bronze: 3 }
+      };
+
+      const response = await request(app)
+        .patch(`/api/users/${nonExistentUserId}`)
+        .send(updates);
+
+      expect(response.status).toBe(404);
+      expect(response.body.msg).toBe("User not found");
+    });
+  });
 });
 
 // Places
