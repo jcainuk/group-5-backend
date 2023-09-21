@@ -46,6 +46,15 @@
           "description": "Delete a user by ID"
         }
       }
+    },
+    {
+      "route": "/api/users/username/:username",
+      "methods": {
+        "GET": {
+          "controller": "getUserByUsername",
+          "description": "Get a user by username"
+        }
+      }
     }
   ],
   "places": [
