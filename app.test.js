@@ -57,7 +57,6 @@ describe("/api/users", () => {
 describe("/api/users/:id", () => {
   describe("GET /:id", () => {
     test("200: responds with the correct user object", async () => {
-      // set up
       const [
         user1,
         user2,
@@ -87,6 +86,49 @@ describe("/api/users/:id", () => {
       expect(response.body.username).toEqual(user1.username);
       expect(response.body.avatar_URL).toEqual(user1.avatar_URL);
       expect(response.body.achievements).toEqual(user1.achievements);
+    });
+  });
+  describe("DELETE /:id", () => {
+    test("204: deletes the user and returns no content", async () => {
+      const [
+        user1,
+        user2,
+        user3,
+        user4,
+        user5
+      ] = require("./db/data/test-data/users");
+
+      const user1Id = new mongoose.Types.ObjectId();
+      const user2Id = new mongoose.Types.ObjectId();
+      const user3Id = new mongoose.Types.ObjectId();
+      const user4Id = new mongoose.Types.ObjectId();
+      const user5Id = new mongoose.Types.ObjectId();
+
+      user1._id = user1Id;
+      user2._id = user2Id;
+      user3._id = user3Id;
+      user4._id = user4Id;
+      user5._id = user5Id;
+
+      await User.insertMany([user1, user2, user3, user4, user5]);
+
+      const response = await request(app).delete(`/api/users/${user1Id}`);
+
+      expect(response.status).toBe(204);
+
+      const deletedUser = await User.findById(user1Id);
+      expect(deletedUser).toBeNull();
+    });
+
+    test("404: returns not found if the user does not exist", async () => {
+      const nonExistentUserId = new mongoose.Types.ObjectId();
+
+      const response = await request(app).delete(
+        `/api/users/${nonExistentUserId}`
+      );
+
+      expect(response.status).toBe(404);
+      expect(response.body.msg).toBe("User not found");
     });
   });
 });
