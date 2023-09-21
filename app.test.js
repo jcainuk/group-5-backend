@@ -78,34 +78,6 @@ describe("/DELETE PlaceById", () => {
   });
 });
 
-describe("/POST place", () => {
-  test("201: posts place to database", () => {
-    const body = {
-      placeName: "A test place",
-      coordinates: [55.8374, -3.9876],
-      creator: "TestUser",
-      imgURL: "test",
-      guesses: ["testGuess"]
-    };
-    return request(app)
-      .post("/api/places")
-      .send(body)
-      .expect(201)
-      .then(({ body }) => {
-        expect(body).toEqual(
-          expect.objectContaining({
-            placeName: expect.any(String),
-            coordinates: expect.any(Array),
-            creator: expect.any(String),
-            imgURL: expect.any(String),
-            guesses: expect.any(Array)
-          })
-        );
-        expect(Object.keys(body).length).toBe(9);
-      });
-  });
-});
-
 describe("/DELETE PlaceById", () => {
   test("it should delete a place by its ID", () => {
     return request(app)
@@ -114,34 +86,6 @@ describe("/DELETE PlaceById", () => {
       .then(({ body }) => {
         expect(body.place.acknowledged).toBe(true);
         console.log(body);
-      });
-  });
-});
-
-describe("/POST place", () => {
-  test("201: posts place to database", () => {
-    const body = {
-      placeName: "A test place",
-      coordinates: [55.8374, -3.9876],
-      creator: "TestUser",
-      imgURL: "test",
-      guesses: ["testGuess"]
-    };
-    return request(app)
-      .post("/api/places")
-      .send(body)
-      .expect(201)
-      .then(({ body }) => {
-        expect(body).toEqual(
-          expect.objectContaining({
-            placeName: expect.any(String),
-            coordinates: expect.any(Array),
-            creator: expect.any(String),
-            imgURL: expect.any(String),
-            guesses: expect.any(Array)
-          })
-        );
-        expect(Object.keys(body).length).toBe(9);
       });
   });
 });
