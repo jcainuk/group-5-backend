@@ -1,0 +1,96 @@
+{
+  "users": [
+    {
+      "route": "/api/users",
+      "methods": {
+        "GET": {
+          "controller": "getUsers",
+          "description": "Get a list of users"
+        },
+        "POST": {
+          "controller": "createUser",
+          "description": "Create a new user",
+          "body": {
+            "username": "String - Username of the user",
+            "avatar_URL": "String (optional) - URL of the user's avatar",
+            "achievements": {
+              "gold": "Number (optional) - Number of gold achievements",
+              "silver": "Number (optional) - Number of silver achievements",
+              "bronze": "Number (optional) - Number of bronze achievements"
+            }
+          }
+        }
+      }
+    },
+    {
+      "route": "/api/users/:id",
+      "methods": {
+        "GET": {
+          "controller": "getUserById",
+          "description": "Get a user by ID"
+        },
+        "PATCH": {
+          "controller": "updateUserById",
+          "description": "Update a user's information",
+          "body": {
+            "username": "String (optional) - Updated username",
+            "avatar_URL": "String (optional) - Updated URL of the user's avatar",
+            "achievements": {
+              "gold": "Number (optional) - Number of gold achievements to add",
+              "silver": "Number (optional) - Number of silver achievements to add",
+              "bronze": "Number (optional) - Number of bronze achievements to add"
+            }
+          }
+        },
+        "DELETE": {
+          "controller": "deleteUserById",
+          "description": "Delete a user by ID"
+        }
+      }
+    }
+  ],
+  "places": [
+    {
+      "route": "/api/places",
+      "methods": {
+        "GET": {
+          "controller": "getPlaces",
+          "description": "Get a list of places"
+        },
+        "POST": {
+          "controller": "createPlace",
+          "description": "Create a new place",
+          "body": {
+            "placeName": "String - Name of the place",
+            "coordinates": "[Number, Number] - Latitude and Longitude coordinates",
+            "creator": "String - Creator of the place",
+            "imgURL": "String - URL of the place's image",
+            "guesses": [
+              {
+                "user_id": "String - User ID",
+                "username": "String - User's username",
+                "avatarURL": "String - URL of the user's avatar",
+                "distance": "Number - Distance",
+                "medal": "String - Medal type"
+              }
+            ],
+            "votes": "Number (optional) - Number of votes"
+          }
+        }
+      }
+    },
+    {
+      "route": "/api/places/:id",
+      "methods": {
+        "GET": {
+          "controller": "getPlaceById",
+          "description": "Get a place by ID"
+        },
+        "DELETE": {
+          "controller": "deletePlaceById",
+          "description": "Delete a place by ID"
+        }
+      }
+    }
+  ]
+}
