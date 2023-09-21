@@ -2,6 +2,7 @@ const { app, db } = require("./app");
 const seed = require("./db/seeds/seed.js");
 const userData = require("./db/data/test-data/users");
 const User = require("./models/usersModel");
+const Place = require("./models/placesModel");
 const placesData = require("./db/data/test-data/places");
 
 const { mongoose, startDbConnection } = require("./connection");
@@ -306,5 +307,57 @@ describe("/POST place", () => {
         );
         expect(Object.keys(body).length).toBe(9);
       });
+  });
+});
+
+// guesses
+describe("POST /api/places/:id/guesses", () => {
+  it("should add a new guess to the place", async () => {
+    const testPlaceId = new mongoose.Types.ObjectId();
+
+    const testGuess = {
+      username: "TestUser",
+      avatarURL: "https://example.com/avatar.jpg",
+      guessCoordinates: [53.479489, -3.24621]
+    };
+
+    const placeData = {
+      _id: testPlaceId,
+      placeName: "Test Place",
+      coordinates: [40.479489, -3.245115],
+      creator: "Test Creator",
+      imgURL: "https://example.com/test-place.jpg",
+      guesses: [],
+      votes: 0
+    };
+    await Place.create(placeData);
+
+    const response = await request(app)
+      .post(`/api/places/${testPlaceId}/guesses`)
+      .send(testGuess);
+
+    expect(response.statusCode).toBe(200);
+    expect(response.body.message).toBe("Guess added successfully");
+    expect(response.body.place.guesses).toHaveLength(1);
+
+    const addedGuess = response.body.place.guesses[0];
+    expect(addedGuess.username).toBe(testGuess.username);
+    expect(addedGuess.avatarURL).toBe(testGuess.avatarURL);
+  });
+
+  it("should return 404 for an invalid place ID", async () => {
+    const invalidPlaceId = "invalid-id";
+    const testGuess = {
+      username: "TestUser",
+      avatarURL: "https://example.com/avatar.jpg",
+      guessCoordinates: [53.479489, -3.24621]
+    };
+
+    const response = await request(app)
+      .post(`/api/places/${invalidPlaceId}/guesses`)
+      .send(testGuess);
+
+    expect(response.statusCode).toBe(404);
+    expect(response.body.message).toBe("Invalid place ID");
   });
 });

@@ -1,6 +1,8 @@
 const Place = require("../models/placesModel");
 const mongoose = require("mongoose");
 
+const calculateDistance = require("../utils/utils");
+
 exports.getPlaces = async (req, res) => {
   try {
     const places = await Place.find({}).sort({ createdAt: -1 });
@@ -28,7 +30,6 @@ exports.getPlaceById = async (req, res) => {
   }
 };
 
-
 //will need UPDATING if schema changes
 exports.createPlace = async (req, res) => {
   try {
@@ -38,9 +39,7 @@ exports.createPlace = async (req, res) => {
 
     const valid = newPlace.validateSync();
     if (valid) {
-      return res
-          .status(404)
-          .json({ error: "Input invalid" });
+      return res.status(404).json({ error: "Input invalid" });
     } else {
       if (
         !placeData.placeName ||
@@ -60,7 +59,7 @@ exports.createPlace = async (req, res) => {
     // console.log(err._message);
     res.status(500).json({ err: "could not create place" });
   }
-}
+};
 
 exports.deletePlaceById = async (req, res) => {
   const { id } = req.params;
@@ -75,4 +74,60 @@ exports.deletePlaceById = async (req, res) => {
   }
 
   res.status(200).json({ place });
-}
+};
+
+// Controller function to add a new guess to the guesses array
+exports.addGuessToPlace = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Validate placeId as a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({ message: "Invalid place ID" });
+    }
+
+    const { username, avatarURL, guessCoordinates } = req.body;
+    const [latitude, longitude] = guessCoordinates;
+
+    const place = await Place.findById(id);
+
+    if (!place) {
+      return res.status(404).json({ message: "Place not found" });
+    }
+
+    const [placeLat, placeLong] = place.coordinates;
+    const distance = calculateDistance(
+      placeLat,
+      placeLong,
+      latitude,
+      longitude
+    );
+
+    let medal = null;
+
+    if (distance < 5) {
+      medal = "gold"; // Within 5 meters
+    } else if (distance < 20) {
+      medal = "silver"; // Within 20 meters
+    } else if (distance < 50) {
+      medal = "bronze"; // Within 50 meters
+    }
+
+    const newGuess = {
+      username,
+      avatarURL,
+      distance,
+      medal,
+      guessCoordinates: [latitude, longitude]
+    };
+
+    place.guesses.push(newGuess);
+
+    await place.save();
+
+    res.status(200).json({ message: "Guess added successfully", place });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
