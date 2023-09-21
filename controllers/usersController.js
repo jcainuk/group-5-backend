@@ -66,3 +66,39 @@ exports.deleteUserById = async (req, res) => {
     res.status(500).json({ msg: "Internal server error" });
   }
 };
+
+// update user by id
+exports.updateUserById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({ msg: "Invalid ID" });
+    }
+
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    const { achievements, ...restOfUpdates } = req.body;
+
+    if (achievements) {
+      user.achievements.gold += achievements.gold || 0;
+      user.achievements.silver += achievements.silver || 0;
+      user.achievements.bronze += achievements.bronze || 0;
+    }
+
+    for (const key in restOfUpdates) {
+      if (restOfUpdates.hasOwnProperty(key)) {
+        user[key] = restOfUpdates[key];
+      }
+    }
+
+    await user.save();
+
+    res.status(200).json(user);
+  } catch (err) {
+    console.error("Error updating user:", err);
+    res.status(500).json({ msg: "Internal server error" });
+  }
+};
