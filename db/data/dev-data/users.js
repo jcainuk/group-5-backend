@@ -10,7 +10,7 @@ module.exports = [
     achievements: { gold: 0, silver: 0, bronze: 0 }
   },
   {
-    username: "MrsDEVina McCall",
+    username: "MrsDEVinaMcCall",
     avatar_URL: "https://example.com/avatar3.jpg",
     achievements: { gold: 3, silver: 0, bronze: 5 }
   },
