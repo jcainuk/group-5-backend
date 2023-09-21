@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongoose");
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
@@ -24,11 +25,18 @@ const placeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    guesses: {
-      type: [String],
-      required: true,
+    guesses: [
+      {
+        user_id: String,
+        username: String,
+        avatarURL: String,
+        distance: Number,
+        medal: String,
+      },
+    ],
+    votes: {
+      type: Number,
     },
-
   },
   {
     timestamps: true,
