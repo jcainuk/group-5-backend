@@ -1,13 +1,28 @@
 const mongoose = require("mongoose");
 
+const noSpacesValidator = function (value, field) {
+  if (/\s/.test(value)) {
+    let fieldName = field === "username" ? "Username" : "Avatar_url";
+    throw new Error(`${fieldName} cannot contain spaces.`);
+  }
+};
+
 const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: true
+      required: true,
+      validate: {
+        validator: (value) => noSpacesValidator(value, "username"),
+        message: "Username cannot contain spaces."
+      }
     },
     avatar_URL: {
-      type: String
+      type: String,
+      validate: {
+        validator: (value) => noSpacesValidator(value, "avatar_URL"),
+        message: "Avatar_url cannot contain spaces."
+      }
     },
     achievements: {
       gold: {

@@ -211,8 +211,8 @@ describe("/api/users/:id", () => {
   });
 });
 
-// Username: /username/:username
-describe("GET /api/username/:username", () => {
+// Username: /api/users/username/:username
+describe("GET /api/users/username/:username", () => {
   test("200: responds with the correct user object when searching with username", async () => {
     const [
       user1,
@@ -225,7 +225,9 @@ describe("GET /api/username/:username", () => {
     // Insert the test users into the database
     await User.insertMany([user1, user2, user3, user4, user5]);
 
-    const response = await request(app).get(`/api/username/${user1.username}`);
+    const response = await request(app).get(
+      `/api/users/username/${user1.username}`
+    );
 
     expect(response.status).toBe(200);
     expect(response.body.username).toEqual(user1.username);
@@ -237,7 +239,7 @@ describe("GET /api/username/:username", () => {
     const nonExistentUsername = "nonexistentuser";
 
     const response = await request(app).get(
-      `/api/username/${nonExistentUsername}`
+      `/api/users/username/${nonExistentUsername}`
     );
 
     expect(response.status).toBe(404);
