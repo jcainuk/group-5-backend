@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const placeSchema = new mongoose.Schema(
   {
     placeName: {
-      type: String
+      type: String,
     },
     coordinates: {
       type: [Number],
@@ -14,16 +14,16 @@ const placeSchema = new mongoose.Schema(
       validate: {
         validator: function (array) {
           return array.length === 2;
-        }
-      }
+        },
+      },
     },
     creator: {
       type: String,
-      required: true
+      required: true,
     },
     imgURL: {
       type: String,
-      required: true
+      required: true,
     },
     guesses: [
       {
@@ -37,22 +37,22 @@ const placeSchema = new mongoose.Schema(
           validate: {
             validator: function (array) {
               return array.length === 2;
-            }
+            },
           },
-          default: null
-        }
-      }
+          default: null,
+        },
+      },
     ],
     votes: {
-      type: Number
-    }
+      type: Number,
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 
 // Create an index with the expireAfterSeconds option
-//placeSchema.index({ createdAt: 1 }, { expireAfterSeconds: 86400 });
+placeSchema.index({ createdAt: 1 }, { expireAfterSeconds: 60149 });
 
 module.exports = mongoose.model("Place", placeSchema);
