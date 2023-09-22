@@ -52,4 +52,5 @@ const placeSchema = new mongoose.Schema(
   }
 );
 
+placeSchema.index({ "createdAt": 1 }, { expireAfterSeconds: 86400 })
 module.exports = mongoose.model("Place", placeSchema);
