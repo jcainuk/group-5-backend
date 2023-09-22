@@ -23,4 +23,19 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   return distance;
 }
 
-module.exports = calculateDistance;
+
+function updateUserAchievements(user, medal) {
+  switch (medal) {
+    case "gold":
+      user.achievements.gold += 1;
+      break;
+      case "silver":
+        user.achievements.silver += 1;
+      break;
+      case "bronze":
+        user.achievements.bronze += 1;
+      break
+  }
+}
+
+module.exports = {calculateDistance, updateUserAchievements};

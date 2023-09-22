@@ -1,7 +1,7 @@
 const Place = require("../models/placesModel");
+const User = require ('../models/usersModel')
 const mongoose = require("mongoose");
-
-const calculateDistance = require("../utils/utils");
+const {updateUserAchievements, calculateDistance} = require('../utils/utils')
 
 exports.getPlaces = async (req, res) => {
   try {
@@ -124,6 +124,12 @@ exports.addGuessToPlace = async (req, res) => {
     place.guesses.push(newGuess);
 
     await place.save();
+
+    const user = await User.findOne({ username })
+    if (user) {
+      updateUserAchievements(user, medal)
+    }
+    await user.save();
 
     res.status(200).json({ message: "Guess added successfully", place });
   } catch (error) {
