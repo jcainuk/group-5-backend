@@ -1,7 +1,7 @@
 const Place = require("../models/placesModel");
-const User = require ('../models/usersModel')
+const User = require("../models/usersModel");
 const mongoose = require("mongoose");
-const {updateUserAchievements, calculateDistance} = require('../utils/utils')
+const { updateUserAchievements, calculateDistance } = require("../utils/utils");
 
 exports.getPlaces = async (req, res) => {
   try {
@@ -105,12 +105,12 @@ exports.addGuessToPlace = async (req, res) => {
 
     let medal = null;
 
-    if (distance < 5) {
-      medal = "gold"; // Within 5 meters
-    } else if (distance < 20) {
-      medal = "silver"; // Within 20 meters
+    if (distance < 25) {
+      medal = "gold"; // Within 25 meters
     } else if (distance < 50) {
-      medal = "bronze"; // Within 50 meters
+      medal = "silver"; // Within 50 meters
+    } else if (distance < 75) {
+      medal = "bronze"; // Within 75 meters
     }
 
     const newGuess = {
@@ -125,9 +125,9 @@ exports.addGuessToPlace = async (req, res) => {
 
     await place.save();
 
-    const user = await User.findOne({ username })
+    const user = await User.findOne({ username });
     if (user) {
-      updateUserAchievements(user, medal)
+      updateUserAchievements(user, medal);
     }
     await user.save();
 
