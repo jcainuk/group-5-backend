@@ -19,7 +19,7 @@ exports.getOrderedPlaces = async (req, res) => {
   try {
     const places = await Place.find({
       coordinates: { $near: [lat, lon] },
-    }).limit(10)
+    }).limit(10);
     res.status(200).json(places);
   } catch (err) {
     console.log(err);
@@ -141,8 +141,8 @@ exports.addGuessToPlace = async (req, res) => {
     const user = await User.findOne({ username });
     if (user) {
       updateUserAchievements(user, medal);
+      await user.save();
     }
-    await user.save();
 
     res.status(200).json({ message: "Guess added successfully", place });
   } catch (error) {

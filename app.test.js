@@ -339,7 +339,6 @@ describe("POST /api/places/:id/guesses", () => {
       votes: 0
     };
     await Place.create(placeData);
-
     const response = await request(app)
       .post(`/api/places/${testPlaceId}/guesses`)
       .send(testGuess);
