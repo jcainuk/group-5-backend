@@ -14,12 +14,12 @@ exports.getPlaces = async (req, res) => {
 };
 
 exports.getOrderedPlaces = async (req, res) => {
-  console.log('1234')
+  const { query } = req;
+  const { lat, lon } = query;
   try {
-    const places = await Place.find({ coordinates: { $near: [53.478128,
-      -2.244594]
-    }
-    });
+    const places = await Place.find({
+      coordinates: { $near: [lat, lon] },
+    }).limit(10)
     res.status(200).json(places);
   } catch (err) {
     console.log(err);
@@ -131,7 +131,7 @@ exports.addGuessToPlace = async (req, res) => {
       avatarURL,
       distance,
       medal,
-      guessCoordinates: [latitude, longitude]
+      guessCoordinates: [latitude, longitude],
     };
 
     place.guesses.push(newGuess);
