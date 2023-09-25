@@ -5,12 +5,16 @@ const {
   getPlaces,
   getPlaceById,
   createPlace,
-  addGuessToPlace
+  addGuessToPlace,
+  getOrderedPlaces
 } = require("../controllers/placesController");
 const { deletePlaceById } = require("../controllers/placesController");
 
 // Get all places
 placeRouter.get("/", getPlaces);
+
+//Get places in order of distance
+placeRouter.get("/nearest", getOrderedPlaces);
 
 // Get place by id
 placeRouter.get("/:id", getPlaceById);

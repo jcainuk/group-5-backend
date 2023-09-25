@@ -13,6 +13,19 @@ exports.getPlaces = async (req, res) => {
   }
 };
 
+exports.getOrderedPlaces = async (req, res) => {
+  console.log('1234')
+  try {
+    const places = await Place.find({ coordinates: { $near: [53.478128,
+      -2.244594]
+    }
+    });
+    res.status(200).json(places);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 exports.getPlaceById = async (req, res) => {
   try {
     const { id } = req.params;

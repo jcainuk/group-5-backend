@@ -247,6 +247,14 @@ describe("/api/places", () => {
   });
 });
 
+describe(" GET api/places/nearest", () => {
+  test.only("should return places in order of distance", () => {
+    return request(app).get('/api/places/nearest').expect(200).then(({body}) => {
+      console.log(body)
+    })
+  })
+})
+
 describe("/DELETE PlaceById", () => {
   test("it should delete a place by its ID", () => {
     return request(app)
