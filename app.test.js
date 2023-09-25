@@ -248,8 +248,8 @@ describe("/api/places", () => {
 });
 
 describe(" GET api/places/nearest", () => {
-  test.only("should return places in order of distance", () => {
-    return request(app).get('/api/places/nearest').expect(200).then(({body}) => {
+  test("should return places in order of distance", () => {
+    return request(app).get('/api/places/nearest?lat=53.478128&lon=-2.244594').expect(200).then(({body}) => {
       console.log(body)
     })
   })
