@@ -9,11 +9,13 @@ Please find the link to the front-end repo for this project here:
 
 We are a team of five enthusiastic software engineers and we developed Picture-This-Place as our final project during the `July 2023` cohort of [Northcoders](https://northcoders.com/), a software engineering bootcamp that enables career-changers to become developers in 13 weeks.
 
-- [Jay7806](https://github.com/Jay7806)
-- [Harrywg](https://github.com/Harrywg)
-- [Lawler45](https://github.com/Lawler45)
-- [A-E-Harding](https://github.com/A-E-Harding)
-- [jcainuk](https://github.com/jcainuk)
+<p align="center">
+  <a href="https://github.com/Jay7806" style="font-size: 24px; margin: 0 20px;">Jay7806</a>
+  <a href="https://github.com/Harrywg" style="font-size: 24px; margin: 0 20px;">Harrywg</a>
+  <a href="https://github.com/Lawler45" style="font-size: 24px; margin: 0 20px;">Lawler45</a>
+  <a href="https://github.com/A-E-Harding" style="font-size: 24px; margin: 0 20px;">A-E-Harding</a>
+  <a href="https://github.com/jcainuk" style="font-size: 24px; margin: 0 20px;">jcainuk</a>
+</p>
 
 ## Table of Contents
 
@@ -332,8 +334,10 @@ The following features were things we planned to implement if we had had more ti
 
 ## Team Members
 
-- [Jay7806](https://github.com/Jay7806)
-- [Harrywg](https://github.com/Harrywg)
-- [Lawler45](https://github.com/Lawler45)
-- [A-E-Harding](https://github.com/A-E-Harding)
-- [jcainuk](https://github.com/jcainuk)
+<p align="center">
+  <a href="https://github.com/jcainuk" style="font-size: 24px; margin: 0 20px;">jcainuk</a>
+  <a href="https://github.com/A-E-Harding" style="font-size: 24px; margin: 0 20px;">A-E-Harding</a>
+  <a href="https://github.com/Lawler45" style="font-size: 24px; margin: 0 20px;">Lawler45</a>
+  <a href="https://github.com/Harrywg" style="font-size: 24px; margin: 0 20px;">Harrywg</a>
+  <a href="https://github.com/Jay7806" style="font-size: 24px; margin: 0 20px;">Jay7806</a>
+</p>
