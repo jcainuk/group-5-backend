@@ -47,17 +47,17 @@ Link to live demo TBA...
 
 ## Technologies Used
 
-List the technologies and libraries used in your project's backend.
+List the technologies and libraries used in our project's backend.
 
 - **Node.js**: The runtime environment for running JavaScript on the server-side.
-- **Express.js**: A web application framework for Node.js, used to build your API endpoints.
-- **MongoDB**: A NoSQL database used to store and manage your application's data.
+- **Express.js**: A web application framework for Node.js, used to build our API endpoints.
+- **MongoDB**: A NoSQL database used to store and manage our application's data.
 - **Mongoose**: An Object Data Modeling (ODM) library for MongoDB and Node.js, used to interact with MongoDB in a more structured manner.
 - **dotenv**: A package used for loading environment variables from a `.env` file into `process.env`, which is essential for storing sensitive information like database connection strings securely.
-- **cors**: A package that helps you handle Cross-Origin Resource Sharing (CORS) in your API, allowing your frontend to make requests to your backend from different origins.
-- **nodemon**: A development tool that monitors changes in your source code files and automatically restarts the server when changes are detected, making the development process smoother.
-- **Jest**: A popular JavaScript testing framework for writing and running tests for your application.
-- **supertest**: A package that allows you to make HTTP requests to your API endpoints and assert the responses in your tests.
+- **cors**: A package that helped us to handle Cross-Origin Resource Sharing (CORS) in our API, allowing our frontend to make requests to our backend from different origins.
+- **nodemon**: A development tool that monitors changes in our source code files and automatically restarts the server when changes are detected, making the development process smoother.
+- **Jest**: A popular JavaScript testing framework for writing and running tests for our application.
+- **supertest**: A package that allowed us to make HTTP requests to our API endpoints and assert the responses in our tests.
 
 ## Project Description
 
