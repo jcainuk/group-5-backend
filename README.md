@@ -2,9 +2,12 @@
 
 The backend API for Picture-This-Place, an app that encourages local exploration, social engagement, and gameplay by allowing users to submit photos of places, and others must guess the location based on the photo. Users earn points for correct guesses and compete on leaderboards.
 
+Please find the link to the front-end repo for this project here:
+[Front-End GitHub repo](https://github.com/Harrywg/group-5-frontend)
+
 ## The Team
 
-Picture-This-Place was developed by a team of five enthusiastic software engineers during their final project at [Northcoders](https://northcoders.com/), a software engineering bootcamp that enables career-changers to become developers in 13 weeks.
+We are a team of five enthusiastic software engineers and we developed Picture-This-Place as our final project during the July 2023 cohort of [Northcoders](https://northcoders.com/), a software engineering bootcamp that enables career-changers to become developers in 13 weeks.
 
 - [Jay7806](https://github.com/Jay7806)
 - [Harrywg](https://github.com/Harrywg)
