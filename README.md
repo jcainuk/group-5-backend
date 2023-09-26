@@ -10,7 +10,7 @@ Picture-This-Place was developed by a team of five enthusiastic software enginee
 - [Harrywg](https://github.com/Harrywg)
 - [Lawler45](https://github.com/Lawler45)
 - [A-E-Harding](https://github.com/A-E-Harding)
-- [@jcainuk](https://github.com/jcainuk)
+- [jcainuk](https://github.com/jcainuk)
 
 ## Table of Contents
 
