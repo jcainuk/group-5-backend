@@ -1,19 +1,19 @@
 # Picture-This-Place API
 
-The backend API for `Picture-This-Place`, an app that encourages local exploration, social engagement, and gameplay by allowing users to submit photos of places, and others must guess the location in the the photo by walking to that place an submitting a guess using their phone coordinates. Users earn points and medals for correct guesses and compete on leaderboards.
+The backend API for `Picture-This-Place`, a mobile app that encourages local exploration, social engagement, and gameplay by allowing users to submit photos of places, and others must guess the location in the photo by walking to that place and submitting a guess using their phone coordinates. Users earn points and medals for correct guesses and compete on leaderboards.
 
 Please find the link to the front-end repo for this project here:
-[Front-End GitHub repo](https://github.com/Harrywg/group-5-frontend)
+<a href="https://github.com/Harrywg/group-5-frontend" target="_blank">Front-End GitHub repo</a>
 
 ## The Team
 
-We are a team of five enthusiastic software engineers and we developed Picture-This-Place as our final project during the `July 2023` cohort of [Northcoders](https://northcoders.com/), a software engineering bootcamp that enables career-changers to become developers in 13 weeks.
+We are a team of five enthusiastic software engineers, and we developed `Picture-This-Place` as our final project during the `July 2023` cohort of <a href="https://northcoders.com/" target="_blank">Northcoders</a>, a software engineering bootcamp that enables career-changers to become developers in 13 weeks.
 
-- [Jay7806](https://github.com/Jay7806)
-- [Harrywg](https://github.com/Harrywg)
-- [Lawler45](https://github.com/Lawler45)
-- [A-E-Harding](https://github.com/A-E-Harding)
-- [jcainuk](https://github.com/jcainuk)
+- <a href="https://github.com/Jay7806" target="_blank">Jay7806</a>
+- <a href="https://github.com/Harrywg" target="_blank">Harrywg</a>
+- <a href="https://github.com/Lawler45" target="_blank">Lawler45</a>
+- <a href="https://github.com/A-E-Harding" target="_blank">A-E-Harding</a>
+- <a href="https://github.com/jcainuk" target="_blank">jcainuk</a>
 
 ## Table of Contents
 
@@ -33,22 +33,22 @@ We are a team of five enthusiastic software engineers and we developed Picture-T
     - [7. `GET /api/places`](#7-get-apiplaces)
     - [8. `POST /api/places`](#8-post-apiplaces)
     - [9. `GET /api/places/nearest`](#9-get-apiplacesnearest)
-    - [10. `GET /api/places/:id`](#9-get-apiplacesid)
-    - [11. `DELETE /api/places/:id`](#10-delete-apiplacesid)
-    - [12. `POST /api/places/:id/guesses`](#11-post-apiplacesidguesses)
+    - [10. `GET /api/places/:id`](#10-get-apiplacesid)
+    - [11. `DELETE /api/places/:id`](#11-delete-apiplacesid)
+    - [12. `POST /api/places/:id/guesses`](#12-post-apiplacesidguesses)
 - [Setup Instructions](#setup-instructions)
   - [Prerequisites](#prerequisites)
-  - [Clone the Repository](#clone-the-repository)
+  - [Fork and Clone the Repository](#fork-and-clone-the-repository)
   - [Install Dependencies](#install-dependencies)
   - [Create Environment Variables](#create-environment-variables)
   - [Running the Server](#running-the-server)
   - [Running Tests](#running-tests)
-- [Future Considerations](#future-improvements)
-- [Team Members](#authors)
+- [Future Considerations](#future-considerations)
+- [Team Members](#team-members)
 
 ## Live Demo
 
-Link to live demo TBA...
+Link to demo video TBA...
 
 ## Technologies Used
 
@@ -66,7 +66,7 @@ List the technologies and libraries used in our project's backend.
 
 ## Project Description
 
-`Picture-This-Place` is an app that promotes local exploration, social engagement, and fun gameplay. Users can create accounts, submit photos of places, and challenge others to guess the location. Points are awarded for correct guesses, and users can compete on leaderboards. It's an interactive way to encourage people to get out of the house, explore their surroundings, and connect with others in their local area.
+`Picture-This-Place` is a mobile app that promotes local exploration, social engagement, and fun gameplay. Users can create accounts, submit photos of places, and challenge others to guess the location. Points are awarded for correct guesses, and users can compete on leaderboards. It's an interactive way to encourage people to get out of the house, explore their surroundings, and connect with others in their local area.
 
 ## Reflections and Key Learnings
 
@@ -280,11 +280,13 @@ Example Response:
     Node.js (minimum version: 14.20.1)
     MongoDB
 
-### Clone the Repository
+### Fork and Clone the Repository
+
+- Once you have forked this repository, do the following:
 
 ```
-    git clone [repository URL]
-    cd [project directory]
+    git clone [your forked repository URL]
+    cd [your forked project directory]
 ```
 
 ### Install Dependencies
@@ -332,8 +334,8 @@ The following features were things we planned to implement if we had had more ti
 
 ## Team Members
 
-- [Jay7806](https://github.com/Jay7806)
-- [Harrywg](https://github.com/Harrywg)
-- [Lawler45](https://github.com/Lawler45)
-- [A-E-Harding](https://github.com/A-E-Harding)
-- [jcainuk](https://github.com/jcainuk)
+- <a href="https://github.com/Jay7806" target="_blank">Jay7806</a>
+- <a href="https://github.com/Harrywg" target="_blank">Harrywg</a>
+- <a href="https://github.com/Lawler45" target="_blank">Lawler45</a>
+- <a href="https://github.com/A-E-Harding" target="_blank">A-E-Harding</a>
+- <a href="https://github.com/jcainuk" target="_blank">jcainuk</a>
