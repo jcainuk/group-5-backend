@@ -53,7 +53,7 @@ const placeSchema = new mongoose.Schema(
 );
 
 // Create an index with the expireAfterSeconds option
-placeSchema.index({ createdAt: 1 }, { expireAfterSeconds: 16384 });
+placeSchema.index({ createdAt: 1 }, { expireAfterSeconds: 14566 });
 
 // create 2d index to enable geospatial queries
 placeSchema.index( {coordinates: "2d" } )
