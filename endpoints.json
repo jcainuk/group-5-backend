@@ -95,6 +95,19 @@
       }
     },
     {
+      "route": "/api/places/nearest",
+      "methods": {
+        "GET": {
+          "controller": "getOrderedPlaces",
+          "description": "Get 10 closest places to submitted coordinates in order of distance",
+          "query": {
+            "lat": "Number - Latitude",
+            "lon": "Number - Longitude"
+          }
+        }
+      }
+    },
+    {
       "route": "/api/places/:id",
       "methods": {
         "GET": {

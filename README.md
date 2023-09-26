@@ -21,8 +21,8 @@ We are a team of five enthusiastic software engineers and we developed Picture-T
 - [Technologies Used](#technologies-used)
 - [Project Description](#project-description)
 - [Reflections and Key Learnings](#reflections-and-key-learnings)
-- [API Endpoints](#api-endpoints)
-  - [1. `GET /api`](#1-get-api)
+  - [API Endpoints](#api-endpoints)
+    - [1. `GET /api`](#1-get-api)
   - [User Endpoints](#user-endpoints)
     - [2. `GET /api/users`](#2-get-apiusers)
     - [3. `POST /api/users`](#3-post-apiusers)
@@ -32,9 +32,10 @@ We are a team of five enthusiastic software engineers and we developed Picture-T
   - [Place Endpoints](#place-endpoints)
     - [7. `GET /api/places`](#7-get-apiplaces)
     - [8. `POST /api/places`](#8-post-apiplaces)
-    - [9. `GET /api/places/:id`](#9-get-apiplacesid)
-    - [10. `DELETE /api/places/:id`](#10-delete-apiplacesid)
-    - [11. `POST /api/places/:id/guesses`](#11-post-apiplacesidguesses)
+    - [9. `GET /api/places/nearest`](#9-get-apiplacesnearest)
+    - [10. `GET /api/places/:id`](#9-get-apiplacesid)
+    - [11. `DELETE /api/places/:id`](#10-delete-apiplacesid)
+    - [12. `POST /api/places/:id/guesses`](#11-post-apiplacesidguesses)
 - [Setup Instructions](#setup-instructions)
   - [Prerequisites](#prerequisites)
   - [Clone the Repository](#clone-the-repository)
@@ -42,7 +43,7 @@ We are a team of five enthusiastic software engineers and we developed Picture-T
   - [Create Environment Variables](#create-environment-variables)
   - [Running the Server](#running-the-server)
   - [Running Tests](#running-tests)
-- [Future Improvements](#future-improvements)
+- [Future Considerations](#future-improvements)
 - [Team Members](#authors)
 
 ## Live Demo
@@ -131,9 +132,9 @@ Working with Mongoose, an Object Data Modeling (ODM) library for MongoDB, presen
     "username": "String - Username of the user",
     "avatar_URL": "String (optional) - URL of the user's avatar",
     "achievements": {
-      "gold": "Number (optional) - Number of gold achievements",
-      "silver": "Number (optional) - Number of silver achievements",
-      "bronze": "Number (optional) - Number of bronze achievements"
+      "gold": "Number (optional) - Number of gold achievements, default is 0",
+      "silver": "Number (optional) - Number of silver achievements, default is 0",
+      "bronze": "Number (optional) - Number of bronze achievements, default is 0"
     }
   }
 
@@ -149,7 +150,7 @@ Working with Mongoose, an Object Data Modeling (ODM) library for MongoDB, presen
    "gold": 0,
    "silver": 0,
    "bronze": 0
- }
+  }
  }
 ```
 
@@ -164,11 +165,11 @@ Working with Mongoose, an Object Data Modeling (ODM) library for MongoDB, presen
 
 ```
   {
-  "avatar_URL": "String (optional) - Updated URL of the user's avatar",
-  "achievements": {
-  "gold": "Number (optional) - Number of gold achievements to add",
-  "silver": "Number (optional) - Number of silver achievements to add",
-  "bronze": "Number (optional) - Number of bronze achievements to add"
+    "avatar_URL": "String (optional) - Updated URL of the user's avatar",
+    "achievements": {
+    "gold": "Number (optional) - Number of gold achievements to add to total",
+    "silver": "Number (optional) - Number of silver achievements to add to total",
+    "bronze": "Number (optional) - Number of bronze achievements to add to total"
   }
 }
 ```
@@ -177,13 +178,13 @@ Working with Mongoose, an Object Data Modeling (ODM) library for MongoDB, presen
 
 ```
   {
-  "username": "updated_user",
-  "avatar_URL": "https://example.com/avatar/updated_user.jpg",
-  "achievements": {
-  "gold": 5,
-  "silver": 3,
-  "bronze": 2
-  }
+    "username": "updated_user",
+    "avatar_URL": "https://example.com/avatar/updated_user.jpg",
+    "achievements": {
+    "gold": 5,
+    "silver": 3,
+    "bronze": 2
+    }
   }
 ```
 
@@ -204,64 +205,70 @@ Working with Mongoose, an Object Data Modeling (ODM) library for MongoDB, presen
 
 ```
 {
-"placeName": "String - Name of the place",
-"coordinates": [
-"Number - Latitude of the place",
-"Number - Longitude of the place"
-],
-"creator": "String - Creator of the place",
-"imgURL": "String - URL of the place's image",
+  "placeName": "String - Name of the place",
+  "coordinates": [
+  "Number - Latitude of the place",
+  "Number - Longitude of the place"
+    ],
+  "creator": "String - Creator of the place",
+    "imgURL": "String - URL of the place's image",
 "guesses": [
-{
-"user_id": "String - User ID",
-"username": "String - User's username",
-"avatarURL": "String - URL of the user's avatar",
-"distance": "Number - Distance",
-"medal": "String - Medal type",
-"guessCoordinates": [
-"Number - Latitude of the guess",
-"Number - Longitude of the guess"
-]
-}
-],
-"votes": "Number (optional) - Number of votes"
-}
+  {
+    "user_id": "String - User ID",
+    "username": "String - User's username",
+    "avatarURL": "String - URL of the user's avatar",
+    "guessCoordinates": [
+      "Number - Latitude of the guess",
+      "Number - Longitude of the guess"
+      ] // guesses array defaults to empty array on new place
+  }
+  ],
+    "votes": "Number (optional) - Number of votes"
+  }
 ```
 
 Example Response:
 
 ```
 {
-"placeName": "new_place",
-"coordinates": [53.4808, -2.2426],
-"creator": "creator_user",
-"imgURL": "https://example.com/place/new_place.jpg",
-"guesses": [],
-"votes": 0
+  "placeName": "new_place",
+  "coordinates": [53.4808, -2.2426],
+  "creator": "creator_user",
+  "imgURL": "https://example.com/place/new_place.jpg",
+  "guesses": [],
+  "votes": 0
 }
 ```
 
-#### 9. `GET /api/places/:id`
+#### 9. `GET /api/places/nearest`
+
+- Description: Get the 10 closest places to the submitted query coordinates.
+- Request query parameters:
+  - `lat` (Number): Latitude of the query coordinates.
+  - `lon` (Number): Longitude of the query coordinates.
+
+#### 10. `GET /api/places/:id`
 
 - Description: Get a place by ID
 
-#### 10. `DELETE /api/places/:id`
+#### 11. `DELETE /api/places/:id`
 
 - Description: Delete a place by ID
 
-#### 11. `POST /api/places/:id/guesses`
+#### 12. `POST /api/places/:id/guesses`
 
-- Description: Add a new guess to the place (where :id is the place ID)
+- Description: Add a new guess object to the place (where :id is the place ID)
+- The guess object is pushed to the end of the `guesses` array on the place model.
 
 - Request Body:
 
 ```
   {
-  "username": "String - User's username",
-  "avatarURL": "String - URL of the user's avatar",
-  "guessCoordinates": [
-  "Number - Latitude of the guess",
-  "Number - Longitude of the guess"
+    "username": "String - User's username",
+    "avatarURL": "String - URL of the user's avatar",
+    "guessCoordinates": [
+    "Number - Latitude of the guess",
+    "Number - Longitude of the guess"
   ]
   }
 ```
@@ -314,9 +321,14 @@ npm run dev // to start up the server
 npm test
 ```
 
-## Future Improvements
+## Future Considerations
 
-- To be announced...
+The following features were things we planned to implement if we had had more time:
+
+- [ ] Allow users to vote for their favourite photo submissions
+- [ ] Allow users to vote down and report poor or inappropriate photo submissions.
+- [ ] Implement private games for groups
+- [ ] Improved safety moderation to stop photos from inaccessible locations
 
 ## Team Members
 
