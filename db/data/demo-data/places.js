@@ -13,6 +13,14 @@
         distance: 0,
         medal: "gold",
         guessCoordinates: [53.4017, -3.0001]
+      },
+      {
+        username: "MilesAway",
+        avatarURL:
+          "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+        distance: 59,
+        medal: "bronze",
+        guessCoordinates: [53.4022, -3.0003]
       }
     ],
     votes: 0
@@ -204,7 +212,16 @@
     creator: "A-E-Harding",
     imgURL:
       "https://images.unsplash.com/photo-1515586838455-8f8f940d6853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2593&q=80",
-    guesses: [],
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+        distance: 28,
+        medal: "silver",
+        guessCoordinates: [51.5043, -0.0863]
+      }
+    ],
     votes: 0
   },
   {
