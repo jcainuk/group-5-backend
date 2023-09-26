@@ -18,7 +18,7 @@ exports.getOrderedPlaces = async (req, res) => {
   const { lat, lon } = query;
   try {
     const places = await Place.find({
-      coordinates: { $near: [lat, lon] },
+      coordinates: { $near: [lat, lon] }
     }).limit(10);
     res.status(200).json(places);
   } catch (err) {
@@ -131,7 +131,7 @@ exports.addGuessToPlace = async (req, res) => {
       avatarURL,
       distance,
       medal,
-      guessCoordinates: [latitude, longitude],
+      guessCoordinates: [latitude, longitude]
     };
 
     place.guesses.push(newGuess);
@@ -144,7 +144,13 @@ exports.addGuessToPlace = async (req, res) => {
       await user.save();
     }
 
-    res.status(200).json({ message: "Guess added successfully", place });
+    res
+      .status(200)
+      .json({
+        message: "Guess added successfully",
+        yourGuess: newGuess,
+        place: place
+      });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
