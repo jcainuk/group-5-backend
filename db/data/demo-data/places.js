@@ -20,7 +20,7 @@
   {
     placeName: "Place3", // Liverpool, UK - Near Liverpool Cathedral
     coordinates: [53.3977, -2.9701],
-    creator: "Lawler45",
+    creator: "AnitaBath",
     imgURL:
       "https://images.unsplash.com/photo-1515586838455-8f8f940d6853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2593&q=80",
     guesses: [],
@@ -29,7 +29,7 @@
   {
     placeName: "Place4", // Liverpool, UK - Near Tate Liverpool
     coordinates: [53.4014, -3.0008],
-    creator: "A-E-Harding",
+    creator: "HollyWood",
     imgURL:
       "https://images.unsplash.com/photo-1515586838455-8f8f940d6853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2593&q=80",
     guesses: [],
@@ -47,7 +47,7 @@
   {
     placeName: "Place6", // Liverpool, UK - Near Anfield Stadium
     coordinates: [53.4308, -2.9609],
-    creator: "jcainuk",
+    creator: "JustinCase",
     imgURL:
       "https://images.unsplash.com/photo-1515586838455-8f8f940d6853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2593&q=80",
     guesses: [],
@@ -174,7 +174,7 @@
   {
     placeName: "Place20", // London, UK - Near The London Eye
     coordinates: [51.5033, -0.1195],
-    creator: "Harrywg",
+    creator: "MilesAway",
     imgURL:
       "https://images.unsplash.com/photo-1515586838455-8f8f940d6853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2593&q=80",
     guesses: [],
@@ -210,7 +210,7 @@
   {
     placeName: "Place24", // London, UK - Near Covent Garden
     coordinates: [51.5134, -0.1244],
-    creator: "A-E-Harding",
+    creator: "JoeBloggs",
     imgURL:
       "https://images.unsplash.com/photo-1515586838455-8f8f940d6853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2593&q=80",
     guesses: [],
