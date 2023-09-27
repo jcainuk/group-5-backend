@@ -1,4 +1,4 @@
-[
+module.exports = [
   {
     placeName: "Place1", // Liverpool, UK - Near Albert Dock
     coordinates: [53.4017, -3.0001],
