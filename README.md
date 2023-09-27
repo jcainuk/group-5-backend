@@ -24,6 +24,16 @@ We are a team of five enthusiastic software engineers, and we developed `Picture
 - [Technologies Used](#technologies-used)
 - [Project Description](#project-description)
 - [Reflections and Key Learnings](#reflections-and-key-learnings)
+  - [Transition from SQL to NoSQL](#transition-from-sql-to-nosql)
+  - [Geospatial Queries](#geospatial-queries)
+  - [Utility Functions](#utility-functions)
+  - [TTL Indexes](#ttl-indexes)
+  - [Data Type Validation](#data-type-validation)
+  - [Multiple Collections on MongoDB Atlas](#multiple-collections-on-mongodb-atlas)
+  - [Team Collaboration](#team-collaboration)
+  - [Testing](#testing)
+  - [Documentation and Learning Resources](#documentation-and-learning-resources)
+  - [Mongoose and Schema Design](#mongoose-and-schema-design)
   - [API Endpoints](#api-endpoints)
     - [1. `GET /api`](#1-get-api)
   - [User Endpoints](#user-endpoints)
@@ -51,9 +61,13 @@ We are a team of five enthusiastic software engineers, and we developed `Picture
 
 ## Live Demo
 
+[Back to the Top](#table-of-contents)
+
 Link to demo video TBA...
 
 ## Technologies Used
+
+[Back to the Top](#table-of-contents)
 
 List the technologies and libraries used in our project's backend.
 
@@ -69,63 +83,97 @@ List the technologies and libraries used in our project's backend.
 
 ## Project Description
 
+[Back to the Top](#table-of-contents)
+
 `Picture-This-Place` is a mobile app that promotes local exploration, social engagement, and fun gameplay. Users can create accounts, submit photos of places, and challenge others to guess the location. Points are awarded for correct guesses, and users can compete on leaderboards. It's an interactive way to encourage people to get out of the house, explore their surroundings, and connect with others in their local area.
 
 ## Reflections and Key Learnings
 
+[Back to the Top](#table-of-contents)
+
 ### Transition from SQL to NoSQL:
+
+[Back to the Top](#table-of-contents)
 
 Our team had experience with PostgreSQL and SQL during our bootcamp's backend phase. However, for this project, we were encouraged to explore a new technology. We decided to learn MongoDB from scratch. This transition from SQL to a NoSQL database was a significant challenge as we had to adapt to MongoDB's schema-less and document-oriented nature.
 
 ### Geospatial Queries:
 
+[Back to the Top](#table-of-contents)
+
 We needed to understand and implement geospatial queries, such as the $near function in MongoDB. This allowed us to find places near a set of coordinates. We learned that MongoDB's geospatial capabilities are powerful for location-based applications.
 
 ### Utility Functions:
+
+[Back to the Top](#table-of-contents)
 
 We had to create utility functions like `calculateDistance` and `updateUserAchievements`. These functions were essential for calculating distances between coordinates and managing user achievements. We learned that building reusable utility functions promotes clean code and enhances code maintainability. However, we later learned that MongoDB has its own native geospatial abilities which we would have explored further if we had had more time.
 
 ### TTL Indexes:
 
+[Back to the Top](#table-of-contents)
+
 Setting up TTL (Time-To-Live) indexes on MongoDB Atlas was a challenge. We used these indexes to automatically expire place document after a certain amount of time had passed. We learned how to configure TTL indexes to remove stale data, which is crucial for applications like ours where data should be automatically cleaned up. Additionally, we faced issues when reseeding the database and had to delete the TTL indexes on Atlas, which caused some unexpected challenges.
 
 ### Data Type Validation:
+
+[Back to the Top](#table-of-contents)
 
 Ensuring data integrity was crucial. We added validation to our schemas to validate data types and array lengths. We learned that robust data validation is essential for data consistency and preventing unexpected issues.
 
 ### Multiple Collections on MongoDB Atlas:
 
+[Back to the Top](#table-of-contents)
+
 We provided MongoDB Atlas with three collections (Dev, Test, and Prod) for different environments. We had to carefully hook up these collections in our code to ensure that data was stored and accessed correctly based on the development stage. This required meticulous configuration and management of our collections in Atlas.
 
 ### Team Collaboration:
+
+[Back to the Top](#table-of-contents)
 
 Working as a team of five required clear communication and collaboration. We established conventions and coding standards to ensure consistency in our MongoDB schema design and data handling, frequently having group video calls via Slack and utilising pair programming.
 
 ### Testing:
 
+[Back to the Top](#table-of-contents)
+
 Testing MongoDB queries and geospatial functionality was challenging. We developed comprehensive tests to verify that our MongoDB queries worked as expected. We learned the importance of thorough testing to catch and prevent issues. We were using our own sample data for testing, and finding a way simultaneously import this data into our test suite and generate MongoDB \_ids for each record required a work-around in our tests.
 
 ### Documentation and Learning Resources:
+
+[Back to the Top](#table-of-contents)
 
 We extensively used MongoDB's documentation and other learning resources to understand its features, especially geospatial capabilities. We realized the value of up-to-date documentation for exploring new technologies.
 
 ### Mongoose and Schema Design:
 
+[Back to the Top](#table-of-contents)
+
 Working with Mongoose, an Object Data Modeling (ODM) library for MongoDB, presented its own set of challenges. We had to learn how to design and structure schemas effectively. This involved defining document structures, data types, and relationships between collections. Through this, we gained a deeper understanding of how document-oriented databases differ from traditional relational databases that we had encountered before.
 
 ## API Endpoints
 
+[Back to the Top](#table-of-contents)
+
 #### 1. `GET /api`
+
+[Back to the Top](#table-of-contents)
 
 - Description: Serves up a JSON representation of all the available endpoints of the API
 
 ### User Endpoints
 
+[Back to the Top](#table-of-contents)
+
 #### 2. `GET /api/users`
+
+[Back to the Top](#table-of-contents)
 
 - Description: Get a list of users
 
 #### 3. `POST /api/users`
+
+[Back to the Top](#table-of-contents)
 
 - Description: Create a new user
 - Request Body:
@@ -159,9 +207,13 @@ Working with Mongoose, an Object Data Modeling (ODM) library for MongoDB, presen
 
 #### 4. `GET /api/users/:id`
 
+[Back to the Top](#table-of-contents)
+
 - Description: Get a user by ID
 
 #### 5. `PATCH /api/users/:id`
+
+[Back to the Top](#table-of-contents)
 
 - Description: Update a user's information
 - Request Body:
@@ -193,15 +245,21 @@ Working with Mongoose, an Object Data Modeling (ODM) library for MongoDB, presen
 
 #### 6. DELETE `/api/users/:id`
 
+[Back to the Top](#table-of-contents)
+
 - Description: Delete a user by ID
 
 ## Place Endpoints
 
 #### 7. `GET /api/places`
 
+[Back to the Top](#table-of-contents)
+
 - Description: Get a list of places
 
 #### 8. `POST /api/places`
+
+[Back to the Top](#table-of-contents)
 
 - Description: Create a new place
 - Request Body:
@@ -245,6 +303,8 @@ Example Response:
 
 #### 9. `GET /api/places/nearest`
 
+[Back to the Top](#table-of-contents)
+
 - Description: Get the 10 closest places to the submitted query coordinates.
 - Request query parameters:
   - `lat` (Number): Latitude of the query coordinates.
@@ -252,13 +312,19 @@ Example Response:
 
 #### 10. `GET /api/places/:id`
 
+[Back to the Top](#table-of-contents)
+
 - Description: Get a place by ID
 
 #### 11. `DELETE /api/places/:id`
 
+[Back to the Top](#table-of-contents)
+
 - Description: Delete a place by ID
 
 #### 12. `POST /api/places/:id/guesses`
+
+[Back to the Top](#table-of-contents)
 
 - Description: Add a new guess object to the place (where :id is the place ID)
 - The guess object is pushed to the end of the `guesses` array on the place model.
@@ -278,12 +344,18 @@ Example Response:
 
 ## Setup Instructions
 
+[Back to the Top](#table-of-contents)
+
 ### Prerequisites
+
+[Back to the Top](#table-of-contents)
 
     Node.js (minimum version: 14.20.1)
     MongoDB
 
 ### Fork and Clone the Repository
+
+[Back to the Top](#table-of-contents)
 
 - Once you have forked this repository, do the following:
 
@@ -294,11 +366,15 @@ Example Response:
 
 ### Install Dependencies
 
+[Back to the Top](#table-of-contents)
+
 ```
  npm install
 ```
 
 ### Create Environment Variables
+
+[Back to the Top](#table-of-contents)
 
 Create a .env file in the project root and add the necessary environment variables.
 
@@ -310,6 +386,8 @@ MONGO_URI= // Your MONGO_URI
 
 ## Running the Server
 
+[Back to the Top](#table-of-contents)
+
 Start the server using:
 
 ```
@@ -320,6 +398,8 @@ npm run dev // to start up the server
 
 ## Running Tests
 
+[Back to the Top](#table-of-contents)
+
 - Run tests to ensure everything is working as expected:
 
 ```
@@ -327,6 +407,8 @@ npm test
 ```
 
 ## Future Considerations
+
+[Back to the Top](#table-of-contents)
 
 The following features were things we planned to implement if we had had more time:
 
@@ -336,6 +418,8 @@ The following features were things we planned to implement if we had had more ti
 - [ ] Improved safety moderation to stop photos from inaccessible locations
 
 ## Team Members
+
+[Back to the Top](#table-of-contents)
 
 - <a href="https://github.com/Jay7806" target="_blank">James Smith</a>
 - <a href="https://github.com/Harrywg" target="_blank">Harry Ward-Gray</a>
