@@ -5,6 +5,9 @@ The backend API for `Picture-This-Place`, a mobile app that encourages local exp
 Please find the link to the front-end repo for this project here:
 <a href="https://github.com/Harrywg/group-5-frontend" target="_blank">Front-End GitHub repo</a>
 
+Please find a link to the hosted api here:
+<a href="https://group-5-backend-ztnc.onrender.com/api" target="_blank">Hosted API</a>
+
 ## The Team
 
 We are a team of five enthusiastic software engineers, and we developed `Picture-This-Place` as our final project during the `July 2023` cohort of <a href="https://northcoders.com/" target="_blank">Northcoders</a>, a software engineering bootcamp that enables career-changers to become developers in 13 weeks.
