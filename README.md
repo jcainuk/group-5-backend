@@ -9,11 +9,11 @@ Please find the link to the front-end repo for this project here:
 
 We are a team of five enthusiastic software engineers, and we developed `Picture-This-Place` as our final project during the `July 2023` cohort of <a href="https://northcoders.com/" target="_blank">Northcoders</a>, a software engineering bootcamp that enables career-changers to become developers in 13 weeks.
 
-- <a href="https://github.com/Jay7806" target="_blank">Jay7806</a>
-- <a href="https://github.com/Harrywg" target="_blank">Harrywg</a>
-- <a href="https://github.com/Lawler45" target="_blank">Lawler45</a>
-- <a href="https://github.com/A-E-Harding" target="_blank">A-E-Harding</a>
-- <a href="https://github.com/jcainuk" target="_blank">jcainuk</a>
+- <a href="https://github.com/Jay7806" target="_blank">James Smith</a>
+- <a href="https://github.com/Harrywg" target="_blank">Harry Ward-Gray</a>
+- <a href="https://github.com/Lawler45" target="_blank">Lewis Lawler</a>
+- <a href="https://github.com/A-E-Harding" target="_blank">Alice Harding</a>
+- <a href="https://github.com/jcainuk" target="_blank">Jonathan Cain</a>
 
 ## Table of Contents
 
@@ -334,8 +334,8 @@ The following features were things we planned to implement if we had had more ti
 
 ## Team Members
 
-- <a href="https://github.com/Jay7806" target="_blank">Jay7806</a>
-- <a href="https://github.com/Harrywg" target="_blank">Harrywg</a>
-- <a href="https://github.com/Lawler45" target="_blank">Lawler45</a>
-- <a href="https://github.com/A-E-Harding" target="_blank">A-E-Harding</a>
-- <a href="https://github.com/jcainuk" target="_blank">jcainuk</a>
+- <a href="https://github.com/Jay7806" target="_blank">James Smith</a>
+- <a href="https://github.com/Harrywg" target="_blank">Harry Ward-Gray</a>
+- <a href="https://github.com/Lawler45" target="_blank">Lewis Lawler</a>
+- <a href="https://github.com/A-E-Harding" target="_blank">Alice Harding</a>
+- <a href="https://github.com/jcainuk" target="_blank">Jonathan Cain</a>
