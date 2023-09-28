@@ -83,7 +83,16 @@ module.exports = [
     creator: "JustinCase",
     imgURL:
       "https://cdn.getyourguide.com/img/location/5bb114bf4f394.jpeg/70.jpg",
-    guesses: [],
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://gravatar.com/avatar/fd9cd642686ae42480480e981c76617f?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4308, -2.9609]
+      }
+    ],
     votes: 0
   },
   {
@@ -92,7 +101,24 @@ module.exports = [
     creator: "Jay7806",
     imgURL:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyDxLKbxUP3Nz7SW5RA6ZJKf0-4lwkD0ykhg&usqp=CAU",
-    guesses: [],
+    guesses: [
+      {
+        username: "TheresaGreen",
+        avatarURL:
+          "https://gravatar.com/avatar/eeadd5a6db1700117e7ee9a2b9ff00ff?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4391, -2.9649]
+      },
+      {
+        username: "jcainuk",
+        avatarURL:
+          "https://gravatar.com/avatar/0cf57536266a73113941b3f9ea745abc?s=400&d=robohash&r=x",
+        distance: 70,
+        medal: "bronze",
+        guessCoordinates: [53.4398, -2.9662]
+      }
+    ],
     votes: 0
   },
   {
@@ -110,7 +136,16 @@ module.exports = [
     creator: "A-E-Harding",
     imgURL:
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/25/a6/ae/49/doctor-who-worlds-of.jpg?w=1200&h=-1&s=1",
-    guesses: [],
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://gravatar.com/avatar/fd9cd642686ae42480480e981c76617f?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4079, -2.9804]
+      }
+    ],
     votes: 0
   },
   {
@@ -137,7 +172,16 @@ module.exports = [
     creator: "jcainuk",
     imgURL:
       "https://upload.wikimedia.org/wikipedia/commons/e/ea/The_Royal_Liver_Buildings_-_geograph.org.uk_-_526323.jpg",
-    guesses: [],
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://gravatar.com/avatar/fd9cd642686ae42480480e981c76617f?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4052, -3.0143]
+      }
+    ],
     votes: 0
   },
 
@@ -299,7 +343,16 @@ module.exports = [
     creator: "Harrywg",
     imgURL:
       "https://eu-assets.simpleview-europe.com/manchester2016/imageresizer/?image=%2Fdbimgs%2F3%E2%80%94IMG_6851.jpeg&action=BlogDetailContent",
-    guesses: [],
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://gravatar.com/avatar/fd9cd642686ae42480480e981c76617f?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [51.5076, -0.0968]
+      }
+    ],
     votes: 0
   },
 
@@ -309,7 +362,16 @@ module.exports = [
     creator: "A-E-Harding",
     imgURL:
       "https://eu-assets.simpleview-europe.com/manchester2016/imageresizer/?image=%2Fdbimgs%2F3%E2%80%94IMG_6851.jpeg&action=BlogDetailContent",
-    guesses: [],
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://gravatar.com/avatar/fd9cd642686ae42480480e981c76617f?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4631, -2.2913]
+      }
+    ],
     votes: 0
   },
 
@@ -319,7 +381,16 @@ module.exports = [
     creator: "Jay7806",
     imgURL:
       "https://www.chapmantaylor.com/uploads/Chapman_Taylor_433_SMC_MediaCityUK_Salford_Quays_Manchester_UK_N374-2.jpg",
-    guesses: [],
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://gravatar.com/avatar/fd9cd642686ae42480480e981c76617f?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4692, -2.2987]
+      }
+    ],
     votes: 0
   },
 
@@ -329,7 +400,16 @@ module.exports = [
     creator: "Jay7806",
     imgURL:
       "https://upload.wikimedia.org/wikipedia/commons/8/8a/Rylands_Library_Deansgate.jpg",
-    guesses: [],
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://gravatar.com/avatar/fd9cd642686ae42480480e981c76617f?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4808, -2.2445]
+      }
+    ],
     votes: 0
   },
 
@@ -339,7 +419,90 @@ module.exports = [
     creator: "A-E-Harding",
     imgURL:
       "https://www.museumsassociation.org/app/uploads/2021/07/Air-and-Space-Hall-pictured-in-2006.-Credit-Science-Museum-Group-1024x681.jpg",
-    guesses: [],
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://gravatar.com/avatar/fd9cd642686ae42480480e981c76617f?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4774, -2.2551]
+      }
+    ],
+    votes: 0
+  },
+
+  {
+    placeName: "Place32", // Near Museum of Science and Industry
+    coordinates: [53.4774, -2.2551],
+    creator: "A-E-Harding",
+    imgURL:
+      "https://www.museumsassociation.org/app/uploads/2021/07/Air-and-Space-Hall-pictured-in-2006.-Credit-Science-Museum-Group-1024x681.jpg",
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://gravatar.com/avatar/fd9cd642686ae42480480e981c76617f?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4774, -2.2551]
+      }
+    ],
+    votes: 0
+  },
+
+  {
+    placeName: "Place33", // Castlefield Urban Heritage Park
+    coordinates: [53.4725, -2.2559],
+    creator: "A-E-Harding",
+    imgURL:
+      "https://a.cdn-hotels.com/gdcs/production25/d1562/9f952824-644e-435f-8a62-1f54e296aee9.jpg",
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://gravatar.com/avatar/fd9cd642686ae42480480e981c76617f?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4725, -2.2559]
+      }
+    ],
+    votes: 0
+  },
+  {
+    placeName: "Place34", // China Town Manchester
+    coordinates: [53.4765, -2.2384],
+    creator: "jcainuk",
+    imgURL:
+      "https://a.cdn-hotels.com/gdcs/production75/d345/4c813110-36a9-463c-8155-1a08ace0ccb8.jpg",
+    guesses: [
+      {
+        username: "Lawler45",
+        avatarURL:
+          "https://gravatar.com/avatar/fd9cd642686ae42480480e981c76617f?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4765, -2.2384]
+      }
+    ],
+    votes: 0
+  },
+  {
+    placeName: "Place35", // Manchester Art Gallery
+    coordinates: [53.4774, -2.2393],
+    creator: "jcainuk",
+    imgURL:
+      "https://historicengland.org.uk/etl/1282980/19de43ee-b66b-44dc-a3ad-9bf642d22ec1.jpg?autorotate=true&height=500&mode=max&quality=80",
+    guesses: [
+      {
+        username: "TheresaGreen",
+        avatarURL:
+          "https://gravatar.com/avatar/eeadd5a6db1700117e7ee9a2b9ff00ff?s=400&d=robohash&r=x",
+        distance: 0,
+        medal: "gold",
+        guessCoordinates: [53.4774, -2.2393]
+      }
+    ],
     votes: 0
   }
 ];
