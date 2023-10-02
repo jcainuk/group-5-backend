@@ -8,6 +8,9 @@ Please find the link to the front-end repo for this project here:
 Please find a link to the hosted api here:
 <a href="https://group-5-backend-ztnc.onrender.com/api" target="_blank">Hosted API</a>
 
+Please find a demonstration video of the full project here:
+<a href="https://www.youtube.com/watch?v=CL6b3KgObPg" target="_blank">Demo Video</a>
+
 ## The Team
 
 We are a team of five enthusiastic software engineers, and we developed `Picture-This-Place` as our final project during the `July 2023` cohort of <a href="https://northcoders.com/" target="_blank">Northcoders</a>, a software engineering bootcamp that enables career-changers to become developers in 13 weeks.
