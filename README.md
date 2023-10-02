@@ -66,7 +66,8 @@ We developed `Picture-This-Place` as our final project during the `July 2023` co
 
 [Back to the Top](#table-of-contents)
 
-Link to demo video TBA...
+Please find a demonstration video of the full project here:
+<a href="https://www.youtube.com/watch?v=CL6b3KgObPg" target="_blank">Demo Video</a>
 
 ## Technologies Used
 
